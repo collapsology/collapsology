@@ -1,0 +1,67 @@
+// --------------------------------
+// =mainnav
+// --------------------------------
+
+.c-mobilenav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 60px;
+}
+
+.c-mobilenav__item:not(:last-child) {
+  margin-bottom: 12px;
+
+  @include mq(medium) {
+    margin-bottom: 18px;
+  }
+}
+
+.c-mobilenav__link {
+  display: block;
+  font-weight: 300;
+  font-family: $fontstack-main;
+  font-size: calc(29 / 16 * 1rem);
+  line-height: (36 / 29);
+  color: var(--color-gray1);
+  transition: color 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-gray2);
+    text-decoration: none;
+  }
+
+  @include mq(small) {
+    font-size: calc(38 / 16 * 1rem);
+    line-height: (48 / 38);
+  }
+
+  @include mq(medium) {
+    font-size: calc(51 / 16 * 1rem);
+    line-height: (60 / 51);
+  }
+}
+
+.c-mobilenav__link.is-active {
+  color: var(--color-white);
+}
+
+// --------------------------------
+// =animations
+// --------------------------------
+
+.c-mobilenav__item {
+  animation-name: appearFromBottomXsmall;
+  animation-duration: 0.15s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+
+@for $i from 1 through 5 {
+  .is-active .c-mobilenav__item:nth-child(#{$i}) {
+    animation-delay: 0.1s + ($i * 0.075s);
+    animation-play-state: running;
+  }
+}

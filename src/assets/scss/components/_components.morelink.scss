@@ -1,0 +1,11 @@
+// --------------------------------
+// =more link
+// --------------------------------
+
+.c-morelink {
+  color: var(--color-gray5);
+
+  &:hover {
+    color: var(--color-gray4);
+  }
+}

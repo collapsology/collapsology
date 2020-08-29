@@ -1,0 +1,19 @@
+// --------------------------------
+// =container
+// --------------------------------
+
+.l-container {
+  margin: 0 auto;
+  max-width: 1260px;
+  padding-right: 24px;
+  padding-left: 24px;
+
+  @include mq(medium) {
+    padding-right: 42px;
+    padding-left: 42px;
+  }
+}
+
+.l-container--narrow {
+  max-width: 990px;
+}

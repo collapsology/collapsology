@@ -1,0 +1,48 @@
+---
+permalink: /{{ locale }}/liens/index.html
+translationKey: "linksPage"
+pageTitle: "Sites et liens"
+pageIntro: "Notre sélection de liens et de sites qui traitent de près ou de loin des différents sujets abordés par la collapsologie."
+---
+
+{% extends "layouts/base.njk" %}
+
+{% set metaTitle = pageTitle %}
+{% set metaDescription = pageIntro %}
+{% set metaImage = site.url ~ "/assets/img/social_media.jpg" %}
+{% set currentSectionId = "links" %}
+
+{% block content %}
+<main>
+  <div class="c-pagesection  c-pagesection--dark  u-padding-top-xl">
+    <div class="l-container  l-container--narrow">
+
+      <h1 class="c-h1  c-h1--invert">{{ pageTitle }}</h1>
+      <p class="c-pageintro">{{ pageIntro }}</p>
+
+    </div>
+  </div>
+
+  {% set linksByTypes = collections.linksByTypes_fr %}
+  {% for type, links in linksByTypes %}
+    <div class="c-pagesection  c-pagesection--border">
+      <div class="l-container  l-container--narrow">
+
+        <h2 class="c-smalltitle  u-margin-bottom-xl">{{ type }}</h2>
+        {% for link in links %}
+          {% if loop.first %}<ul class="l-grid  l-grid--gap  l-grid--2cols@medium">{% endif %}
+            <li>
+              <article class="c-link">
+                <h3 class="c-link__title  c-h3"><a href="{{- link.data.url -}}">{{ link.data.title }}</a></h3>
+                <div class="c-link__summary">{{ link.templateContent | safe }}</div>
+              </article>
+            </li>
+          {% if loop.last %}</ul>{% endif %}
+        {% endfor %}
+
+      </div>
+    </div>
+  {% endfor %}
+
+</main>
+{% endblock %}

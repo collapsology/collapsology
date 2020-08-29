@@ -1,0 +1,25 @@
+// --------------------------------
+// =links
+// --------------------------------
+
+.c-link {
+  display: block;
+}
+
+.c-link__type {
+  margin-bottom: calc(6 / 16 * 1rem);
+  font-weight: 600;
+  font-size: calc(12 / 16 * 1rem);
+  line-height: calc(18 / 12);
+  color: var(--color-gray5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.c-link__title {
+  margin-bottom: calc(12 / 16 * 1rem);
+}
+
+.c-link__summary {
+  color: var(--color-gray3);
+}

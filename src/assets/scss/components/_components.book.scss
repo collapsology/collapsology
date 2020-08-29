@@ -1,0 +1,43 @@
+// --------------------------------
+// =book
+// --------------------------------
+
+.c-book {
+  display: block;
+}
+
+.c-book__cover {
+  box-sizing: border-box;
+  margin-bottom: calc(24 / 16 * 1rem);
+  border: 1px solid var(--color-gray8);
+
+  & > a {
+    display: block;
+  }
+}
+
+.c-book__author {
+  margin-bottom: calc(12 / 16 * 1rem);
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--color-gray2);
+
+  @include mq(large) {
+    font-size: calc(18 / 16 * 1rem);
+  }
+}
+
+.c-book__title {
+  font-family: $fontstack-alt;
+  margin-bottom: calc(18 / 16 * 1rem);
+}
+
+.c-book__data {
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--color-gray5);
+
+  @include mq(large) {
+    font-size: calc(18 / 16 * 1rem);
+  }
+}

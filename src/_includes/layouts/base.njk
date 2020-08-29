@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ metaTitle ~ " - " }}{{ site[locale].title }}</title>
+    <meta name="description" content="{{ metaDescription }}">
+
+    <!-- Twitter + Open Graph -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="{{ site.twitterHandle }}" />
+    <meta property="og:url" content="{{ site.url ~ page.url }}" />
+    <meta property="og:title" content="{{ metaTitle }}" />
+    <meta property="og:description" content="{{ metaDescription }}" />
+    <meta property="og:image" content="{{ metaImage }}" />
+
+    <!-- Apple icon (minimal) -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/assets/css/main.min.css">
+    <script defer src="/assets/js/main.bundle.js"></script>
+    {% block headend %}{% endblock %}
+  </head>
+  <body>
+    {% include "components/siteheader.njk" %}
+    {% include "components/mobilemenu.njk" %}
+    {% block content %}{% endblock %}
+    {% include "components/sitefooter.njk" %}
+  </body>
+</html>

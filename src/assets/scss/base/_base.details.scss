@@ -1,0 +1,17 @@
+// --------------------------------
+// =details
+// --------------------------------
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+  outline: none;
+
+  @include mq(large) {
+    display: inline-block;
+  }
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}

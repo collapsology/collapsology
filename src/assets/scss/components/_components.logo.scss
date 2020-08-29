@@ -1,0 +1,49 @@
+// --------------------------------
+// =logo
+// --------------------------------
+
+.c-logo {
+  width: 112px;
+  margin: 0;
+  padding: 0;
+  color: var(--color-white);
+
+  @include mq(medium) {
+    width: 132px;
+  }
+
+  @include mq(large) {
+    width: 171px;
+  }
+}
+
+.c-logo__link {
+  display: block;
+  width: 100%;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+
+  & svg {
+    max-width: 100%;
+    vertical-align: middle;
+  }
+}
+
+// --------------------------------
+// =variants
+// --------------------------------
+
+.c-logo--invert {
+  color: var(--color-gray1);
+}
+
+.c-logo--small {
+  width: 112px;
+
+  @include mq(large) {
+    width: 132px;
+  }
+}

@@ -1,0 +1,78 @@
+// --------------------------------
+// =records
+// --------------------------------
+
+.c-record {
+  display: block;
+}
+
+.c-record__meta {
+  margin-bottom: calc(12 / 16 * 1rem);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--color-gray2);
+
+  @include mq(large) {
+    font-size: calc(18 / 16 * 1rem);
+    line-height: calc(30 / 18);
+  }
+}
+
+.c-record__type {
+  color: var(--color-gray4);
+}
+
+.c-record__title {
+  margin-bottom: calc(12 / 16 * 1rem);
+  line-height: 1.36;
+
+  @include mq(medium) {
+    margin-bottom: calc(6 / 16 * 1rem);
+  }
+
+  & > a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--color-primary-washed);
+    text-decoration-skip-ink: all;
+    text-underline-offset: 5px;
+    transition: all 0.15s ease-out;
+  }
+  & > a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary-dark);
+  }
+}
+
+.c-record__summary {
+  margin: 0;
+}
+
+.c-record__summary-trigger {
+  font-size: 1rem;
+  color: var(--color-gray3);
+
+  &::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    margin-left: 6px;
+    background-image: url(../img/icon_chevron_down.svg);
+    background-position: 0 0;
+    background-size: cover;
+    transform: rotate(0);
+    transition: transform 0.1s ease-out;
+  }
+
+  [open] > &::after {
+    transform: rotate(180deg);
+  }
+}
+
+.c-record__summary-content {
+  margin-top: calc(12 / 16 * 1rem);
+  font-size: 1rem;
+  color: var(--color-gray2);
+}

@@ -1,0 +1,41 @@
+// --------------------------------
+// =page sections
+// --------------------------------
+
+/**
+ * - handles top and bottom padding
+ * - variants for colors and borders
+*/
+
+.c-pagesection {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @include mq(small) {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  @include mq(medium) {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  @include mq(large) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
+
+// --------------------------------
+// =variants
+// --------------------------------
+
+.c-pagesection--dark {
+  background-color: var(--color-gray1);
+  color: var(--color-gray5);
+}
+
+.c-pagesection--border {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}

@@ -1,0 +1,83 @@
+// --------------------------------
+// =button
+// --------------------------------
+
+.c-button {
+  display: inline-block;
+  cursor: pointer;
+  padding: calc(12 / 16 * 1rem) calc(24 / 16 * 1rem);
+  border: 2px solid var(--color-primary-main);
+  background-color: transparent;
+  text-decoration: none;
+
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--color-gray1);
+
+  transition: all 0.15s ease-out;
+
+  @include mq(large) {
+    font-size: calc(18 / 16 * 1rem);
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: var(--color-gray1);
+    border-color: var(--color-primary-bright);
+  }
+}
+
+.c-button--primary {
+  text-decoration: none;
+  background-color: var(--color-primary-main);
+
+  &:hover {
+    text-decoration: none;
+    background-color: var(--color-primary-bright);
+  }
+}
+
+.c-button--secondary {
+  font-size: 1rem;
+  padding: calc(12 / 16 * 1rem) calc(18 / 16 * 1rem);
+  border: 1px solid var(--color-gray6);
+  border-radius: calc(3 / 16 * 1rem);
+  color: var(--color-gray2);
+
+  &:hover {
+    text-decoration: none;
+    border-color: var(--color-gray3);
+    color: var(--color-gray2);
+  }
+}
+
+.c-button--text {
+  padding: 0;
+  border: none;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-primary-dark);
+  }
+}
+
+.c-button--cta {
+  padding: 0;
+  padding-bottom: 6px;
+  border: none;
+  border-bottom: 3px solid var(--color-primary-main);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-gray1);
+    border-color: var(--color-primary-bright);
+  }
+}
+
+.c-button--invert {
+  color: var(--color-white);
+
+  &:hover {
+    color: var(--color-white);
+  }
+}

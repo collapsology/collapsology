@@ -1,0 +1,26 @@
+// --------------------------------
+// =filters
+// --------------------------------
+
+.c-filters {
+  margin-bottom: 1.5rem;
+}
+
+.c-filters__controls {
+  text-align: right;
+}
+
+.c-filters__body {
+  padding-top: calc(24 / 16 * 1rem);
+  transition: opacity 0.2s ease-out;
+}
+
+.c-filters__body--enterStart,
+.c-filters__body--leaveEnd {
+  opacity: 0;
+}
+
+.c-filters__body--enterEnd,
+.c-filters__body--leaveStart {
+  opacity: 1;
+}

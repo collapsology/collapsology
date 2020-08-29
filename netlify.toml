@@ -1,0 +1,10 @@
+[build]
+command = "gulp build"
+functions = "functions/"
+publish = "dist/"
+
+[[redirects]]
+force = true
+from = "/"
+status = 301
+to = "/fr/"

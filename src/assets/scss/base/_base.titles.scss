@@ -1,0 +1,108 @@
+// --------------------------------
+// =titles
+// --------------------------------
+
+.c-h1,
+.c-h2,
+.c-h3,
+.c-h4,
+.c-h5 {
+  font-weight: 600;
+  font-family: $fontstack-alt;
+  color: var(--color-gray1);
+  line-height: 1.2;
+  margin-bottom: 0.66em;
+}
+
+.c-h1--invert,
+.c-h2--invert,
+.c-h3--invert,
+.c-h4--invert,
+.c-h5--invert {
+  color: var(--color-white);
+}
+
+.c-h1 {
+  font-weight: 600;
+  font-size: calc(32 / 16 * 1rem);
+
+  @include mq(medium) {
+    font-weight: 400;
+    font-size: calc(43 / 16 * 1rem);
+  }
+
+  @include mq(large) {
+    font-size: calc(68 / 16 * 1rem);
+  }
+}
+
+.c-h2 {
+  font-size: calc(29 / 16 * 1rem);
+
+  @include mq(medium) {
+    font-size: calc(32 / 16 * 1rem);
+  }
+
+  @include mq(large) {
+    font-size: calc(38 / 16 * 1rem);
+  }
+}
+
+.c-h3 {
+  font-size: calc(24 / 16 * 1rem);
+
+  @include mq(large) {
+    font-size: calc(29 / 16 * 1rem);
+  }
+}
+
+.c-h4 {
+  font-size: calc(21 / 16 * 1rem);
+
+  @include mq(large) {
+    font-size: calc(24 / 16 * 1rem);
+  }
+}
+
+.c-h5 {
+  font-family: $fontstack-main;
+  font-size: 1rem;
+
+  @include mq(large) {
+    font-size: calc(18 / 16 * 1rem);
+  }
+}
+
+// --------------------------------
+// =links in titles
+// --------------------------------
+
+.c-h1,
+.c-h2,
+.c-h3,
+.c-h4,
+.c-h5,
+.c-h6 {
+  & > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+  }
+  & > a:hover,
+  & > a:focus {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+  }
+}
+
+.c-h1--invert,
+.c-h2--invert,
+.c-h3--invert,
+.c-h4--invert,
+.c-h5--invert,
+.c-h6--invert {
+  & > a:hover,
+  & > a:focus {
+    color: var(--color-primary-main);
+  }
+}

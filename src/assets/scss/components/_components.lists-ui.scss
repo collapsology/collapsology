@@ -1,0 +1,16 @@
+// --------------------------------
+// =lists
+// --------------------------------
+
+.c-listui {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.c-listui > li {
+  padding-top: calc(24 / 16 * 1rem);
+  padding-bottom: calc(24 / 16 * 1rem);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}

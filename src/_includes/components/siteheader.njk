@@ -1,0 +1,36 @@
+<header class="c-siteheader">
+  <div class="l-container  c-siteheader__inner">
+    <div class="c-siteheader__logo">
+      <p class="c-logo"><a class="c-logo__link" href="/{{ locale }}/">{% include "svg/logo.svg" %}</a></p>
+    </div>
+    <nav class="c-siteheader__nav">
+      {% for item in mainnav %}
+        {% if loop.first %}<ul class="c-mainnav">{% endif %}
+          <li class="c-mainnav__item"><a class="c-mainnav__link  {{ 'is-active' if item.id == currentSectionId }}" href="{{- item[locale].link -}}">{{ item[locale].label }}</a></li>
+        {% if loop.last %}</ul>{% endif %}
+      {% endfor %}
+    </nav>
+    <p class="c-siteheader__navtrigger">
+      <a class="c-hamburger__link  js-navtoggle" href="#sitefooter">{% include "svg/hamburger.svg" %}</a>
+    </p>
+    <nav class="c-siteheader__lgg">
+      {% for lgg in languages %}
+        {% if loop.first %}<ul class="c-lggnav">{% endif %}
+          {% set translatedUrl = "/" ~ lgg.code ~ "/" %}
+
+          {# loop through all the content of the site #}
+          {% for item in collections.all %}
+
+            {% if item.data.translationKey == translationKey and item.data.locale == lgg.code %}
+              {% set translatedUrl = item.url %}
+            {% endif %}
+
+          {% endfor %}
+
+          <li class="c-lggnav__item"><a class="c-lggnav__link  {{ 'is-active' if lgg.code == locale }}" href="{{ translatedUrl }}">{{ lgg.label }}</a></li>
+
+        {% if loop.last %}</ul>{% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+</header>

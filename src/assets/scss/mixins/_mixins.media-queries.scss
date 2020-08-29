@@ -1,0 +1,42 @@
+// -------------------------------------
+// Settings
+// -------------------------------------
+
+$breakpoints-map: (
+  "small": (
+    "query": "all and (min-width: 500px)",
+    "generate-grid": true,
+    "generate-helpers": true
+  ),
+  "medium": (
+    "query": "all and (min-width: 750px)",
+    "generate-grid": true,
+    "generate-helpers": true
+  ),
+  "large": (
+    "query": "all and (min-width: 1240px)",
+    "generate-grid": true,
+    "generate-helpers": true
+  )
+) !default;
+
+// -------------------------------------
+// Mixin
+// -------------------------------------
+
+@mixin mq($breakpoint-name) {
+  // check if passed name is in $breakpoints-map
+  @if map-has-key($breakpoints-map, $breakpoint-name) {
+    // get parameters and query
+    $breakpoint-params: map-get($breakpoints-map, $breakpoint-name);
+    $breakpoint-query: map-get($breakpoint-params, query);
+
+    // write media query
+    @media #{$breakpoint-query} {
+      @content;
+    }
+  } @else {
+    // throw error if passed parameter is not a key in $breakpoints-map
+    @error "#{$breakpoint-name} is not a key in $breakpoints-map";
+  }
+}

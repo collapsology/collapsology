@@ -1,0 +1,22 @@
+<div class="c-mobilemenu  js-mobilemenu">
+  <div class="l-container  c-mobilemenu__inner">
+    <div class="c-mobilemenu__header">
+      <p class="c-logo  c-logo--invert"><a class="c-logo__link" href="/{{ locale }}/">{% include "svg/logo.svg" %}</a></p>
+      <button class="c-closemenu  js-navtoggle">{% include "svg/icon_close.svg" %}</button>
+    </div>
+    <nav class="c-mobilemenu__navigation">
+      {% for item in mainnav %}
+        {% if loop.first %}<ul class="c-mobilenav">{% endif %}
+          <li class="c-mobilenav__item"><a class="c-mobilenav__link  {{ 'is-active' if item.id == currentSectionId }}" href="{{- item[locale].link -}}">{{ item[locale].label }}</a></li>
+        {% if loop.last %}</ul>{% endif %}
+      {% endfor %}
+    </nav>
+    <nav class="c-mobilemenu__languages">
+      {% for lgg in languages %}
+        {% if loop.first %}<ul class="c-mobilelgg">{% endif %}
+          <li class="c-mobilelgg__item"><a class="c-mobilelgg__link  {{ 'is-active' if lgg.code == locale }}" href="/{{- lgg.code -}}/">{{ lgg.label }}</a></li>
+        {% if loop.last %}</ul>{% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+</div>

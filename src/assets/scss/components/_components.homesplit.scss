@@ -1,0 +1,41 @@
+// --------------------------------
+// =home split
+// --------------------------------
+
+.c-homesplit {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "science"
+    "press";
+  gap: 36px;
+
+  @include mq(small) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "science press";
+    margin-bottom: 30px;
+  }
+
+  @include mq(large) {
+    grid-template-columns: 4fr 1fr 3fr;
+    grid-template-areas: "science . press";
+    align-items: center;
+    margin-bottom: 0;
+  }
+}
+
+.c-homesplit__science {
+  grid-area: science;
+}
+
+.c-homesplit__press {
+  grid-area: press;
+
+  @include mq(small) {
+    transform: translate3d(0, 30px, 0);
+  }
+
+  @include mq(large) {
+    transform: translate3d(0, 0, 0);
+  }
+}

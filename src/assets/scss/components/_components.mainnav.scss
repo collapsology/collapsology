@@ -1,0 +1,41 @@
+// --------------------------------
+// =mainnav
+// --------------------------------
+
+.c-mainnav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-mainnav__item:not(:last-child) {
+  margin-right: 18px;
+}
+
+.c-mainnav__link {
+  display: inline-block;
+  padding: calc(5 / 16 * 1rem) 0 calc(3 / 16 * 1rem);
+  border-bottom: 2px solid transparent;
+  font-weight: 400;
+  font-size: (18 / 16 * 1rem);
+  line-height: (24 / 18);
+  text-decoration: none;
+  color: var(--color-gray4);
+
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: var(--color-gray5);
+    text-decoration: none;
+  }
+}
+
+.c-mainnav__link.is-active {
+  color: var(--color-white);
+  border-bottom-color: var(--color-primary-main);
+}

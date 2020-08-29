@@ -1,0 +1,41 @@
+// --------------------------------
+// =icon
+// --------------------------------
+
+/**
+ * <span> that wraps SVG
+ * create spacing
+ * sets color via currentColor in SVG
+*/
+
+.c-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  color: inherit;
+
+  & > svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.c-icon--small {
+  width: 18px;
+  height: 18px;
+}
+
+.c-icon--xsmall {
+  width: 12px;
+  height: 12px;
+}
+
+.c-icon--before {
+  margin-right: calc(6 / 16 * 1rem);
+}
+
+.c-icon--after {
+  margin-left: calc(6 / 16 * 1rem);
+}

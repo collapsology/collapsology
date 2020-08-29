@@ -1,0 +1,16 @@
+// --------------------------------
+// =hamburger
+// --------------------------------
+
+.c-hamburger {
+  margin: 0;
+  padding: 0;
+}
+
+.c-hamburger__link {
+  display: block;
+
+  & > svg {
+    vertical-align: middle;
+  }
+}

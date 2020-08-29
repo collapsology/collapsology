@@ -1,0 +1,24 @@
+<footer class="c-sitefooter" id="#sitefooter">
+  <div class="l-container  c-sitefooter__inner">
+    <div class="c-sitefooter__logo">
+      <p class="c-logo  c-logo--small"><a class="c-logo__link" href="/{{ locale }}/">{% include "svg/logo.svg" %}</a></p>
+    </div>
+    <nav class="c-sitefooter__nav">
+      {% for item in mainnav %}
+        {% if loop.first %}<ul class="c-footernav">{% endif %}
+          <li class="c-footernav__item"><a class="c-footernav__link" href="{{- item[locale].link -}}">{{ item[locale].label }}</a></li>
+        {% if loop.last %}</ul>{% endif %}
+      {% endfor %}
+    </nav>
+    <nav class="c-sitefooter__contact">
+      <ul class="c-footernav">
+        <li class="c-footernav__item"><a class="c-footernav__link" href="#">info@collapsologie.fr</a></li>
+        <li class="c-footernav__item"><a class="c-footernav__link" href="#">{{ "Sur Twitter"|translate(locale) }}</a></li>
+      </ul>
+    </nav>
+    <div class="c-sitefooter__credits">
+      <p class="c-sitefooter__copyright">Copyright &copy; Collapsologie.fr - {{ site.buildDate|date('YYYY') }}</p>
+      <p class="c-sitefooter__developer">{{ "Site par"|translate(locale) }} <a href="https://www.webstoemp.com">Webstoemp</a></p>
+    </div>
+  </div>
+</footer>

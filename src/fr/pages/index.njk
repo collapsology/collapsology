@@ -1,0 +1,152 @@
+---
+permalink: /{{ locale }}/index.html
+translationKey: "homePage"
+pageTitle: "Accueil"
+pageIntro: "Mieux comprendre les risques d'effondrement sociétaux et écologiques."
+---
+
+{% extends "layouts/base.njk" %}
+
+{% set metaTitle = pageTitle %}
+{% set metaDescription = pageIntro %}
+{% set metaImage = site.url ~ "/assets/img/social_media.jpg" %}
+{% set currentSectionId = "home" %}
+
+{% block content %}
+<main>
+
+  <section class="c-pagesection  c-pagesection--dark  u-padding-top-xl  u-padding-bottom-none">
+    <div class="l-container">
+
+      <h1 class="c-tagline">Mieux comprendre les <span>risques d'effondrements</span> sociétaux et écologiques</h1>
+
+    </div>
+  </section>
+
+  <section class="c-pagesection  c-pagesection--dark">
+    <div class="l-container">
+
+      <div class="c-homesplit">
+        <div class="c-homesplit__science">
+
+          <div class="c-card"><a href="/{{ locale }}/science/">
+            <div class="c-card__media"><a href="/{{ locale }}/science/">
+              <img src="/assets/img/databases/database_science.jpg"
+                  srcset="/assets/img/databases/_600x450/database_science.jpg 600w,
+                          /assets/img/databases/database_science.jpg 800w"
+                  sizes="(min-width: 1344px) 600px,
+                          (min-width: 760px) 50vw,
+                          100vw"
+                  class="o-fluidimage"
+                  alt="Database science">
+            </a></div>
+            <div class="c-card__body">
+              <h2 class="c-card__title  c-h2  c-h2--invert"><a href="/{{ locale }}/science/">Articles scientifiques</a></h2>
+              <p class="c-text-gray5">Une base de données d'articles scientifiques, de livres académiques, de comptes-rendus de colloques et de rapports d’institutions publiques et indépendantes.</p>
+              <p><a class="c-button  c-button--invert  c-button--cta" href="/{{ locale }}/science/">bib.collapse</a></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="c-homesplit__press">
+
+          <div class="c-card">
+            <div class="c-card__media"><a href="http://www.cdeclin.be/recherches.php">
+              <img src="/assets/img/databases/database_press.jpg"
+                   srcset="/assets/img/databases/_600x450/database_press.jpg 600w,
+                           /assets/img/databases/database_press.jpg 800w"
+                   sizes="(min-width: 1344px) 600px,
+                          (min-width: 760px) 50vw,
+                          100vw"
+                   class="o-fluidimage"
+                   alt="Database science">
+            </a></div>
+            <div class="c-card__body">
+              <h2 class="c-card__title  c-h2  c-h2--invert"><a href="http://www.cdeclin.be/recherches.php">Articles de presse</a></h2>
+              <p class="c-text-gray5">Une docuthèque animée et hébergée par le collectif <em>Construire un Déclin</em> : Presse généraliste et médias indépendants, articles, documents et fiches info.</p>
+              <p><a class="c-button  c-button--invert  c-button--cta" href="http://www.cdeclin.be/recherches.php">CuD<span class="c-icon  c-icon--after  c-icon--small">{% include "svg/icon_external.svg" %}</span></a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="c-pagesection  c-pagesection--border">
+    <div class="l-container  l-split  l-split--1fr3fr">
+      <div>
+
+        <h2 class="c-h2  u-margin-bottom-none">Livres</h2>
+        <p class="u-text-gray5  u-margin-bottom-xxl">Bilbliothèque collapso</p>
+
+      </div>
+      <div>
+
+        {% set books = collections.books_fr | shuffle | limit(6) %}
+        {% for book in books %}
+          {% if loop.first %}<ul class="l-grid  l-grid--gap  l-grid--2cols@small  l-grid--3cols@medium">{% endif %}
+
+            <li>
+              <article class="c-book">
+                <div class="c-book__cover"><a href="{{- book.data.url -}}">
+                  <img src="/assets/img/books/_300x480/{{ book.data.cover }}"
+                        srcset="/assets/img/books/_300x480/{{ book.data.cover }} 300w,
+                                /assets/img/books/{{ book.data.cover }} 600w"
+                        sizes="(min-width: 1344px) 300px,
+                              (min-width: 1024px) 25vw
+                              (min-width: 750px) 33vw,
+                              (min-width: 500px) 50vw,
+                              100vw"
+                        class="o-fluidimage"
+                        alt="{{ book.data.title }}">
+                </a></div>
+                <div class="c-book__body">
+                  <p class="c-book__author">{{ book.data.author }}</p>
+                  <h3 class="c-book__title  c-h4"><a href="{{- book.data.url -}}">{{ book.data.title }}</a></h3>
+                  <p class="c-book__data">{{ book.data.editor }} - {{ book.data.year }}</p>
+                </div>
+              </article>
+            </li>
+
+          {% if loop.last %}</ul>{% endif %}
+        {% endfor %}
+
+        <p class="u-margin-top-l"><a class="c-ctalink" href="/{{ locale }}/livres/">Découvrir tous les livres</a></p>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="c-pagesection  c-pagesection--border">
+    <div class="l-container  l-split  l-split--1fr3fr">
+      <div>
+
+        <h2 class="c-h2  u-margin-bottom-none">Sites et liens</h2>
+        <p class="u-text-gray5  u-margin-bottom-xxl">Collapso online</p>
+
+      </div>
+      <div>
+
+        {% set links = collections.links_fr | shuffle | limit(6) %}
+        {% for link in links %}
+          {% if loop.first %}<ul class="l-grid  l-grid--colgap  l-grid--rowgap-s  l-grid--2cols@medium">{% endif %}
+            <li>
+              <article class="c-link">
+                <h3 class="c-link__title  c-h3"><a href="{{- link.data.url -}}">{{ link.data.title }}</a></h3>
+                <div class="c-link__summary">{{ link.templateContent | safe }}</div>
+              </article>
+            </li>
+          {% if loop.last %}</ul>{% endif %}
+        {% endfor %}
+
+        <p class="u-margin-top-l"><a class="c-ctalink" href="/{{ locale }}/liens/">Découvrir tous les liens</a></p>
+
+      </div>
+    </div>
+  </section>
+
+
+</main>
+{% endblock %}

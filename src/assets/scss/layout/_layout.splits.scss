@@ -1,0 +1,37 @@
+// --------------------------------
+// =splits
+// --------------------------------
+
+.l-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: calc(36 / 16 * 1rem);
+}
+
+// quarters
+
+.l-split--1fr3fr {
+  @include mq(large) {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+.l-split--3fr1fr {
+  @include mq(large) {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+// thirds
+
+.l-split--1fr2fr {
+  @include mq(large) {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.l-split--2fr1fr {
+  @include mq(large) {
+    grid-template-columns: 2fr 1fr;
+  }
+}

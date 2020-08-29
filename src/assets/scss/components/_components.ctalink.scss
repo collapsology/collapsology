@@ -1,0 +1,25 @@
+// --------------------------------
+// =cta link
+// --------------------------------
+
+.c-ctalink {
+  display: inline-block;
+  color: var(--color-gray1);
+  border-bottom: 3px solid var(--color-primary-main);
+  text-decoration: none;
+
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    color: var(--color-gray1);
+    border-color: var(--color-primary-bright);
+  }
+}
+
+.c-ctalink--invert {
+  color: var(--color-white);
+
+  &:hover {
+    color: var(--color-white);
+  }
+}

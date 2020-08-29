@@ -1,0 +1,127 @@
+---
+permalink: /{{ locale }}/about/index.html
+translationKey: "aboutPage"
+pageTitle: "About us"
+pageIntro: "This website is maintained by a collective. Please feel free to contact us via email or Twitter, even simply to say hello."
+---
+
+{% extends "layouts/base.njk" %}
+
+{% set metaTitle = pageTitle %}
+{% set metaDescription = pageIntro %}
+{% set metaImage = site.url ~ "/assets/img/social_media.jpg" %}
+{% set currentSectionId = "about" %}
+
+{% block content %}
+<main>
+
+  <div class="c-pagesection  c-pagesection--dark  u-padding-top-xl">
+    <div class="l-container  l-container--narrow">
+      <h1 class="c-h1 c-h1--invert">{{ pageTitle }}</h1>
+      <p class="c-pageintro">{{ pageIntro }}</p>
+    </div>
+  </div>
+
+  <div class="c-pagesection">
+    <div class="l-container  l-container--narrow">
+
+      <h2 class="c-h2">Who are we?</h2>
+      <div class="l-split  l-split--2fr1fr">
+        <div>
+          <p>Collapsologie.fr is a portal of documentary resources edited and maintained by a collective at the initiative of Pablo Servigne and Raphaël Stevens. It hosts <b>bib.collapse</b>, an open-access scientific database, and offers a selection of links and books for anyone caring for our common future.</p>
+         </div>
+        <div>
+          <h3 class="c-h5">Contact</h3>
+          <ul class="c-listbare">
+            <li><a href="mailto:collapsologie@gmail.com">collapsologie@gmail.com</a></li>
+            <li><a href="https://twitter.com/collapsology">@collapsology</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="c-pagesection  c-pagesection--border">
+    <div class="l-container  l-container--narrow">
+
+      <h3 class="c-h2">Objectives</h3>
+      <ul class="l-grid  l-grid--colgap  l-grid--2cols@small">
+        <li>
+          <h5 class="c-h4">Provide up to date resources</h5>
+          <p>The range of global systemic threats to humans and non-humans is wide and multifaceted. It deserves to be studied rigorously but also to be wisely communicated to people.</p>
+        </li>
+        <li>
+          <h5 class="c-h4">Promote transdisciplinarity</h5>
+          <p>This site is intended for researchers from all disciplines, from natural to humanities and social sciences, as well as for anyone interested in studying our predicament.</p>
+        </li>
+        <li>
+        <h5 class="c-h4">Embrace complexity</h5>
+        <p>Collapsology takes a <a href="https://en.wikipedia.org/wiki/Post-normal_science">Post-Normal Science</a> perspective that complements academic expertise with insights from non-scientists in order to produce knowledge adapted to decision-making on these global and complex issues.</p>
+       </li>
+       <li>
+        <h5 class="c-h4">Lead to action</h5>
+        <p>The current planetary crisis requires urgent attention and serious responses from our governments and from all of us.</p>
+       </li>
+     </ul>
+
+   </div>
+ </div>
+
+   <div class="c-pagesection  c-pagesection--border">
+    <div class="l-container  l-container--narrow">
+
+      <h2 class="c-h2">bib.collapse</h2>
+      <div class="l-split  l-split--2fr1fr">
+        <div>
+          <p>The database offers a transdisciplinary panorama of the scientific literature relevant to the study of collapse risks and phenomena in their environmental, human, social and cultural dimensions. </p>
+          <p>In constant evolution since its inception in 2015, <b>bib.collapse</b> is structured in four main categories of keywords:</p>
+          <ol>
+            <li><strong>General discussions</strong>
+              <ul>
+                <li>Limits to growth <em>(discussions &amp; theories of societal collapse and limits to growth)</em></li>
+                <li>Existential risks <em>(discussions &amp; theories of existential risks)</em></li>
+                <li>Post-normal science <em>(TEK, uncertainty, governance, etc.)</em></li>
+              </ul>
+            </li>
+            <li><strong>Overshoots &amp; vulnerabilities</strong>
+              <ul>
+                <li>Planetary boundaries <em>(climate, biodiversity, acidification, pollution, water, etc.)</em></li>
+                <li>Physical limits <em>(energy sources, critical metal &amp; minerals, cabon budget, etc.)</em></li>
+                <li>Lock-ins <em>(socio-technical, cognitive, behavioural, rebound effect, etc.)</em></li>
+                <li>Systemic risks <em>(finance, infrastructure, supply chain, telecouplings, etc.)</em></li>
+              </ul>
+            </li>
+            <li><strong>Horsemen of the apocalypse</strong>
+              <ul>
+                <li>Violence, conflicts and wars <em>(migrations, climate, resources, etc.)</em></li>
+                <li>Health, diseases and pandemics <em>(COVID-19, climate, biodiversity, etc.)</em></li>
+                <li>Agriculture, food, famine <em>(breadbasket failure, conflicts, seeds, etc.)</em></li>
+                <li>Disasters <em>(Extreme climate events, nuclear fallout, etc.)</em></li>
+              </ul>
+            </li>
+            <li><strong>Human and social sciences</strong>
+              <ul>
+                <li>Psychology <em>(fear, denial, grief, hope, etc.)</em></li>
+                <li>Political science <em>(governance, activism, failed states, inequality, etc.)</em></li>
+                <li>History <em>(USSR, Rapa-Nui, Rome, etc.)</em></li>
+                <li>Etc. <em>(demography, geopolitics, sociology, philosophy, etc.)</em></li>
+              </ul>
+            </li>
+          </ol>
+          <p>It mainly contains references and abstracts of (1) articles published in peer-reviewed journals; (2) chapters of, and academic books; (3) conference papers ; (4) scientifically sourced reports of public institutions and independent bodies.</p>
+        </div>
+        <div>
+          <h3 class="c-h5">Science database</h3>
+          <ul class="c-listbare">
+            <li>Edition: Raphaël Stevens</li>
+            <li>Version: 2.0</li>
+            <li>Service: Zotero</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+ 
+</main>
+{% endblock %}

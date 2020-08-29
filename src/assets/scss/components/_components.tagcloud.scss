@@ -1,0 +1,46 @@
+// --------------------------------
+// =tagcloud
+// --------------------------------
+
+.c-tagcloud {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.c-tagcloud__item:not(:last-child) {
+  margin-right: calc(6 / 16 * 1rem);
+  margin-bottom: calc(6 / 16 * 1rem);
+}
+
+.c-tagcloud__link {
+  display: block;
+  padding: calc(4 / 16 * 1rem) calc(6 / 16 * 1rem);
+  border-radius: calc(2 / 16 * 1rem);
+  background-color: var(--color-gray7);
+  font-size: calc(12 / 16 * 1rem);
+  line-height: calc(18 / 16);
+  color: var(--color-gray1);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: calc(12 / 240 * 1rem);
+
+  &:hover {
+    background-color: var(--color-gray6);
+    color: var(--color-gray1);
+    text-decoration: none;
+  }
+}
+
+.c-tagcloud__link.is-active {
+  background-color: var(--color-primary-main);
+  color: var(--color-gray1);
+  font-weight: 600;
+}

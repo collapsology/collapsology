@@ -1,0 +1,24 @@
+// --------------------------------
+// =cards
+// --------------------------------
+
+.c-card {
+  display: block;
+}
+
+.c-card__media {
+  margin: 0 0 calc(30 / 16 * 1rem) 0;
+  padding: 0;
+
+  @include mq(large) {
+    margin-bottom: calc(36 / 16 * 1rem);
+  }
+}
+
+.c-card__title {
+  margin-bottom: calc(12 / 16 * 1rem);
+
+  @include mq(medium) {
+    margin-bottom: calc(18 / 16 * 1rem);
+  }
+}

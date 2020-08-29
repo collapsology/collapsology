@@ -1,0 +1,121 @@
+---
+permalink: /{{ locale }}/science/index.html
+translationKey: "sciencePage"
+pageTitle: "Database scientifique"
+pageIntro: "Articles scientifiques, analyses de données, travaux académiques et rapports d’institutions qui traitent des sujets liés à la collapsologie."
+---
+
+{% extends "layouts/base.njk" %}
+
+{% set metaTitle = pageTitle %}
+{% set metaDescription = pageIntro %}
+{% set metaImage = site.url ~ "/assets/img/social_media.jpg" %}
+{% set currentSectionId = "science" %}
+
+{% block headend %}
+  <script defer src="/assets/js/app.bundle.js"></script>
+{% endblock %}
+
+{% block content %}
+<main>
+<div id="app" x-data="zotero()" x-init="init()">
+
+  <div class="c-pagesection  c-pagesection--dark  u-padding-top-xl">
+    <div class="l-container  l-container--narrow">
+      <h1 class="c-h1  u-text-white">{{ pageTitle }}</h1>
+      <p class="c-pageintro">{{ pageIntro }}</p>
+      <h2 class="u-hide">Recherche</h2>
+      <form class="c-searchform" @submit.prevent="getRecordsBySearch()">
+        <div class="c-searchform__field">
+          <input class="c-searchform__input" type="search" x-model="needle">
+          <input class="c-searchform__submit" type="submit" x-show="!searchActive" value="go">
+          <input class="c-searchform__reset" type="reset" x-show="searchActive" value="effacer" @click="clearSearch()">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="c-pagesection">
+    <div class="l-container  l-container--narrow">
+
+      <div class="c-filters">
+        <div class="c-filters__controls">
+          <button @click="filtersOpen = !filtersOpen" aria-controls="filtersBody" aria-expanded="filtersOpen = !filtersOpen" class="c-button  c-button--secondary">Filtrer par tags <span class="c-icon  c-icon--small" aria-hidden="true">{% include "svg/icon_filters.svg" %}</span></button>
+        </div>
+        <div id="filtersBody"
+          class="c-filters__body"
+          x-show="filtersOpen === true"
+          x-transition:enter-start="c-filters__body--enterStart"
+          x-transition:enter-end="c-filters__body--enterEnd"
+          x-transition:leave-start="c-filters__body--leaveStart"
+          x-transition:leave-end="c-filters__body--leaveEnd">
+
+          <template x-if="tags.length">
+            <ul class="c-tagcloud">
+              <li class="c-tagcloud__item"><a class="c-tagcloud__link" :class="{ 'is-active': currentTag === '' }" href="#" @click.prevent="getAllRecords()">Tous les tags</a></li>
+              <template x-for="tag in tags" :key="tag.id">
+                <li class="c-tagcloud__item"><a class="c-tagcloud__link" :class="{ 'is-active': currentTag === tag.id }" href="#" @click.prevent="getRecordsByTag(tag.id)" x-text="tag.name"></a></li>
+              </template>
+            </ul>
+          </template>
+
+        </div>
+      </div>
+
+      <template x-if="loading"><p>... recherche en cours ...</p></template>
+      <template x-if="!loading && totalRecords === 0"><p>Désolé, pas de résultats trouvés</p></template>
+      <template x-if="!loading && totalRecords > 0">
+        <div>
+          <template x-if="totalRecords === 1"><p>1 résultat</p></template>
+          <template x-if="totalRecords > 1"><p><span x-text="totalRecords"></span> résultats</p></template>
+          <ul class="c-listui">
+            <template x-for="item in records" :key="item">
+              <li>
+                <article class="c-record">
+                  <p class="c-record__meta">
+                    <span class="c-record__type" x-text="item.type.{{- locale -}}"></span><template x-if="item.author"><span> - </span></template><span class="c-record__author" x-text="item.author"></span><template x-if="item.publication"><span> - </span></template><span class="c-record__publication" x-text="item.publication"></span><template x-if="item.year"><span>, </span></template><span class="c-record__year" x-text="item.year"></span>
+                  </p>
+                  <template x-if="item.url"><h3 class="c-record__title  c-h3"><a :href="item.url" target="_blank" x-text="item.title"></a></h3></template>
+                  <template x-if="!item.url"><h3 class="c-record__title  c-h3" x-text="item.title"></h3></template>
+                  <template x-if="item.summary">
+                    <details class="c-record__summary" closed>
+                      <summary class="c-record__summary-trigger">Afficher le résumé</summary>
+                      <div class="c-record__summary-content" x-text="item.summary"></div>
+                    </details>
+                  </template>
+                </article>
+              </li>
+            </template>
+          </ul>
+
+          <template x-if="totalPages > 1">
+            <div class="c-pagination  c-pagination--noborder">
+              <nav>
+                <ul class="c-pager">
+                  <li class="c-pager__item">
+                    <button class="c-pager__button" @click="firstPage()" :disabled="currentPage === 1">{% include "svg/pagination_first.svg" %}</button>
+                  </li>
+                  <li class="c-pager__item">
+                    <button class="c-pager__button" @click="prevPage()" :disabled="currentPage === 1">{% include "svg/pagination_prev.svg" %}</button>
+                  </li>
+                  <li class="c-pager__item">
+                    <button class="c-pager__button" @click="nextPage()" :disabled="currentPage === totalPages">{% include "svg/pagination_next.svg" %}</button>
+                  </li>
+                  <li class="c-pager__item">
+                    <button class="c-pager__button" @click="lastPage()" :disabled="currentPage === totalPages">{% include "svg/pagination_last.svg" %}</button>
+                  </li>
+                </ul>
+              </nav>
+              <p class="c-pagecounter">Page <span x-text="currentPage"></span>/<span x-text="totalPages"></span></p>
+            </div>
+          </template>
+
+        </div>
+      </template>
+
+    </div>
+  </div>
+
+</div>
+</main>
+{% endblock %}

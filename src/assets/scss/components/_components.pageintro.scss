@@ -1,0 +1,20 @@
+// --------------------------------
+// =page intro
+// --------------------------------
+
+.c-pageintro {
+  margin-bottom: 0;
+  font-size: calc(18 / 16 * 1rem);
+  line-height: calc(30 / 18);
+  color: var(--color-gray5);
+
+  @include mq(medium) {
+    font-size: calc(21 / 16 * 1rem);
+    line-height: calc(30 / 21);
+  }
+
+  @include mq(large) {
+    font-size: calc(24 / 16 * 1rem);
+    line-height: calc(36 / 24);
+  }
+}

@@ -1,0 +1,13 @@
+// --------------------------------
+// =small titles
+// --------------------------------
+
+.c-smalltitle {
+  font-weight: 400;
+  font-size: calc(12 / 16 * 1rem);
+  line-height: calc(18 / 12);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-gray3);
+  margin-bottom: calc(24 / 16 * 1rem);
+}

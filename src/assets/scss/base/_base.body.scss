@@ -1,0 +1,15 @@
+// --------------------------------
+// =body
+// --------------------------------
+
+body {
+  background-color: var(--color-white);
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-gray1);
+  @include mq(large) {
+    font-size: (18 / 16 * 1rem);
+    line-height: (30 / 18);
+  }
+}

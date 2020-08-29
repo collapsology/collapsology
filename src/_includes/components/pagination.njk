@@ -1,0 +1,40 @@
+{% set totalPages = pagination.hrefs | length %}
+{% set currentPage = pagination.pageNumber + 1 %}
+
+{% if totalPages > 1 %}
+<div class="c-pagination">
+  <nav>
+    <ul class="c-pager">
+      <li class="c-pager__item">
+        {% if page.url != pagination.href.first %}
+          <a class="c-pager__link" href="{{ pagination.href.first }}">{% include "svg/pagination_first.svg" %}</a>
+        {% else %}
+          <span class="c-pager__nolink">{% include "svg/pagination_first.svg" %}</span>
+        {% endif %}
+      </li>
+      <li class="c-pager__item">
+        {% if pagination.href.previous %}
+          <a class="c-pager__link" href="{{ pagination.href.previous }}">{% include "svg/pagination_prev.svg" %}</a>
+        {% else %}
+          <span class="c-pager__nolink">{% include "svg/pagination_prev.svg" %}</span>
+        {% endif %}
+      </li>
+      <li class="c-pager__item">
+        {% if pagination.href.next %}
+          <a class="c-pager__link" href="{{ pagination.href.next }}">{% include "svg/pagination_next.svg" %}</a>
+        {% else %}
+          <span class="c-pager__nolink">{% include "svg/pagination_next.svg" %}</span>
+        {% endif %}
+      </li>
+      <li class="c-pager__item">
+        {% if page.url != pagination.href.last %}
+          <a class="c-pager__link" href="{{ pagination.href.last }}">{% include "svg/pagination_last.svg" %}</a>
+        {% else %}
+          <span class="c-pager__nolink">{% include "svg/pagination_last.svg" %}</span>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+  <p class="c-pagecounter">Page {{ currentPage }}/{{ totalPages }}</p>
+</div>
+{% endif %}

@@ -1,0 +1,48 @@
+// --------------------------------
+// =languages navigation
+// --------------------------------
+
+.c-mobilelgg {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  animation-name: appearFromBottomXsmall;
+  animation-duration: 0.15s;
+  animation-delay: 0.6s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+
+.is-active .c-mobilelgg {
+  animation-play-state: running;
+}
+
+.c-mobilelgg__item:not(:first-child) {
+  margin-left: 1rem;
+}
+
+.c-mobilelgg__link {
+  font-size: 1rem;
+  color: var(--color-gray2);
+  text-decoration: none;
+
+  @include mq(large) {
+    font-size: calc(16 / 18 * 1rem);
+  }
+}
+
+.c-mobilelgg__link.is-active {
+  color: var(--color-gray1);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--color-white);
+  text-decoration-skip-ink: all;
+  text-underline-offset: 6px;
+}

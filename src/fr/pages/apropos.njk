@@ -1,0 +1,127 @@
+---
+permalink: /{{ locale }}/apropos/index.html
+translationKey: "aboutPage"
+pageTitle: "A propos"
+pageIntro: "Collapsologie.fr est un portail de ressources documentaires édité et maintenu par un collectif. N'hésitez pas à nous contacter pour toute question relative à la base de donnée."
+---
+
+{% extends "layouts/base.njk" %}
+
+{% set metaTitle = pageTitle %}
+{% set metaDescription = pageIntro %}
+{% set metaImage = site.url ~ "/assets/img/social_media.jpg" %}
+{% set currentSectionId = "about" %}
+
+{% block content %}
+<main>
+
+  <div class="c-pagesection  c-pagesection--dark  u-padding-top-xl">
+    <div class="l-container  l-container--narrow">
+      <h1 class="c-h1 c-h1--invert">{{ pageTitle }}</h1>
+      <p class="c-pageintro">{{ pageIntro }}</p>
+    </div>
+  </div>
+
+  <div class="c-pagesection">
+    <div class="l-container  l-container--narrow">
+
+      <h2 class="c-h2">Qui sommes-nous ?</h2>
+      <div class="l-split  l-split--2fr1fr">
+        <div>
+          <p>Collapsologie.fr est un portail de ressources documentaires édité et maintenu par un collectif à l'initiative de Pablo Servigne et Raphaël Stevens. Il heberge <strong>bib.collapse</strong>, une base de données scientifique en libre-accès, et propose une sélection de liens et des livres tout public.</p>
+        </div>
+        <div>
+          <h3 class="c-h5">Contact</h3>
+          <ul class="c-listbare">
+            <li><a href="mailto:collapsologie@gmail.com">collapsologie@gmail.com</a></li>
+            <li><a href="https://twitter.com/collapsology">@collapsology</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="c-pagesection  c-pagesection--border">
+    <div class="l-container  l-container--narrow">
+
+      <h3 class="c-h2">Objectifs</h3>
+      <ul class="l-grid  l-grid--gap  l-grid--2cols@small">
+        <li>
+          <h5 class="c-h4">Rendre accessible l'information</h5>
+          <p>L'éventail de menaces systémiques globales pour les humains et les non-humains est très large et multiforme. Il mérite d'être étudié avec rigueur mais aussi d'être communiqué à l'ensemble de la population.</p>
+        </li>
+        <li>
+          <h5 class="c-h4">Promouvoir la transdisciplinarité</h5>
+          <p>Ce site s'adresse aux chercheurs et chercheuses de toutes les disciplines, des sciences exactes et appliquées comme des sciences humaines et sociales ainsi qu'à toutes les personnes désireuses de mieux comprendre les enjeux.</p>
+        </li>
+        <li>
+          <h5 class="c-h4">Inclure les citoyens</h5>
+          <p>La collapsologie s'inscrit dans une perspective de <a href="https://sciences-critiques.fr/quest-ce-que-la-science-post-normale/">"science post-normale"</a> qui complète l'expertise académique par l'avis de non-scientifiques afin de produire des connaissances adaptées à la prise de décision.</p>
+        </li>
+        <li>
+          <h5 class="c-h4">Mener vers l'action</h5>
+          <p>Les constats et les enjeux posés par la collapsologie demandent une attention urgente et des réponses sérieuses de nos gouvernements ainsi que de chacun d'entre nous.</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="c-pagesection  c-pagesection--border">
+    <div class="l-container  l-container--narrow">
+
+      <h2 class="c-h2">bib.collapse</h2>
+      <div class="l-split  l-split--2fr1fr">
+        <div>
+          <p>Cette base de données offre un panorama transdisciplinaire de la littérature scientifique utile à l'étude des risques et des phénomènes d'effondrement dans leurs dimensions environnementales, humaines, sociales et culturelles.</p>
+          <p>En constante évolution, la base de donnée est structurée autour de quatre grandes catégories de mots-clés:</p>
+          <ol>
+            <li><strong>General discussions</strong>
+              <ul>
+                <li>Limits to growth <em>(discussions &amp; theories of societal collapse)</em></li>
+                <li>Existential risks <em>(discussions &amp; theories of existential risks)</em></li>
+                <li>Post-normal science <em>(TEK, politics, governance)</em></li>
+              </ul>
+            </li>
+            <li><strong>Overshoots &amp; vulnerabilities</strong>
+              <ul>
+                <li>Planetary boundaries<em>(climate, biodiversity, acidification, pollution, water, etc.)</em></li>
+                <li>Physical limits <em>(energy sources, critical metal &amp; minerals, cabon budget, etc.)</em></li>
+                <li>Lock-ins <em>(socio-technical, cognitive, behavioural, rebound effect, etc.)</em></li>
+                <li>Systemic risks <em>(finance, infrastructure, supply chain, telecouplings, etc.)</em></li>
+              </ul>
+            </li>
+            <li><strong>Horsemen of the apocalypse</strong>
+              <ul>
+                <li>Violence, conflicts and wars <em>(migrations, climate, resources, etc.)</em></li>
+                <li>Health, diseases and pandemics <em>(COVID-19, climate, biodiversity, etc.)</em></li>
+                <li>Agriculture, food, famine <em>(breadbasket failure, conflicts, seeds, etc.)</em></li>
+                <li>Disasters <em>(Extreme climate events, nuclear fallout, etc.)</em></li>
+              </ul>
+            </li>
+            <li><strong>Human and social sciences</strong>
+              <ul>
+                <li>Psychology <em>(fear, denial, grief, hope, etc.)</em></li>
+                <li>Political science <em>(governance, activism, failed states, etc.)</em></li>
+                <li>History <em>(USSR, Rapa-Nui, Rome, etc.)</em></li>
+                <li>Etc. <em>(demography, geopolitics, sociology, philosophy, etc.)</em></li>
+              </ul>
+            </li>
+          </ol>
+          <p>Elle contient des références et résumés (1) d'articles scientifiques, (2) de livres et de chapitres de livres universitaires, (3) d'actes de colloques académiques, (4) de rapports institutionnels ou d'organisations indépendantes scientifiquement sourcés, et (5) un nombre très restreint d'articles de magazines ou de journaux utiles, ainsi que des liens vers ces références.</div>
+        <div>
+          <h3 class="c-h5">Science database</h3>
+          <ul class="c-listbare">
+            <li>Edition: Raphaël Stevens</li>
+            <li>Version: 2.0</li>
+            <li>Service: Zotero</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}

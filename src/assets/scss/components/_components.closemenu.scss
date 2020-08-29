@@ -1,0 +1,15 @@
+// --------------------------------
+// =closemenu
+// --------------------------------
+
+.c-closemenu {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+
+  & > svg {
+    vertical-align: middle;
+  }
+}
