@@ -73,7 +73,7 @@ pageIntro: "Database of scientific articles, analysis, academic papers and insti
               <li>
                 <article class="c-record">
                   <p class="c-record__meta">
-                    <span class="c-record__type" x-text="item.type.{{- locale -}}"></span><template x-if="item.author"><span> - </span></template><span class="c-record__author" x-text="item.author"></span><template x-if="item.publication"><span> - </span></template><span class="c-record__publication" x-text="item.publication"></span><template x-if="item.publisher"><span> - </span></template><span class="c-record__publisher" x-text="item.publisher"></span><template x-if="item.year"><span>, </span></template><span class="c-record__year" x-text="item.year"></span>
+                    <span class="c-record__type" x-text="item.type.{{- locale -}}"></span><template x-if="item.author"><span> - </span></template><span class="c-record__author" x-text="item.author"></span><template x-if="item.publication"><span> - </span></template><span class="c-record__publication" x-text="item.publication"></span><template x-if="item.publisher"><span> - </span></template><span class="c-record__publisher" x-text="item.publisher"></span><template x-if="item.institution"><span> - </span></template><span class="c-record__institution" x-text="item.institution"></span><template x-if="item.year"><span>, </span></template><span class="c-record__year" x-text="item.year"></span>
                   </p>
                   <template x-if="item.url"><h3 class="c-record__title  c-h3"><a :href="item.url" target="_blank" x-text="item.title"></a></h3></template>
                   <template x-if="!item.url"><h3 class="c-record__title  c-h3" x-text="item.title"></h3></template>
