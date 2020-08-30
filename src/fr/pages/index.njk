@@ -84,7 +84,7 @@ pageIntro: "Mieux comprendre les risques d'effondrement sociétaux et écologiqu
       </div>
       <div>
 
-        {% set books = collections.books_fr | shuffle | limit(6) %}
+        {% set books = collections.books_fr | limit(6) %}
         {% for book in books %}
           {% if loop.first %}<ul class="l-grid  l-grid--gap  l-grid--2cols@small  l-grid--3cols@medium">{% endif %}
 

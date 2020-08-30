@@ -84,7 +84,7 @@ pageIntro: "Better understand the risks of social and environmental collapses."
       </div>
       <div>
 
-        {% set books = collections.books_en | shuffle | limit(6) %}
+        {% set books = collections.books_en | limit(6) %}
         {% for book in books %}
           {% if loop.first %}<ul class="l-grid  l-grid--gap  l-grid--2cols@small  l-grid--3cols@medium">{% endif %}
 
