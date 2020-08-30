@@ -139,9 +139,9 @@ exports.handler = async function (event, context, callback) {
           title: item.data.title,
           author: item.meta.creatorSummary,
           year: getYear(item.meta.parsedDate),
-          publication: item.data.publicationTitle ?? "",
-          publisher: item.data.publisher ?? "",
-          institution: item.data.institution ?? "",
+          publication: item.data.publicationTitle,
+          publisher: item.data.publisher,
+          institution: item.data.institution,
           url: item.data.url,
           summary: item.data.abstractNote
         };
