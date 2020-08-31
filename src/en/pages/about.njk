@@ -9,7 +9,7 @@ pageIntro: "This website is maintained by a collective. Please feel free to cont
 
 {% set metaTitle = pageTitle %}
 {% set metaDescription = pageIntro %}
-{% set metaImage = site.url ~ "/assets/img/social_media.jpg" %}
+{% set metaImage = site.baseUrl ~ "/assets/img/social_media.jpg" %}
 {% set currentSectionId = "about" %}
 
 {% block content %}
@@ -122,6 +122,6 @@ pageIntro: "This website is maintained by a collective. Please feel free to cont
 
     </div>
   </div>
- 
+
 </main>
 {% endblock %}

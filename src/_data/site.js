@@ -1,15 +1,15 @@
 module.exports = {
   buildDate: new Date(),
   twitterHandle: "@collapsology",
-  baseUrl: "https://11ty-collapsology-alpine.netlify.app",
+  baseUrl: "https://www.collapsology.info",
   fr: {
     title: "Portail de Collapsologie",
     description:
       "Mieux comprendre les risques d’effondrements de nos civilisations industrielles."
   },
   en: {
-    title: "Collapsology Portail",
+    title: "Collapsology Portal",
     description:
-      "Get to grips with the possible collapses of our industrial civilisations."
+      "Better understand the current risks of social and environmental collapses."
   }
 };
