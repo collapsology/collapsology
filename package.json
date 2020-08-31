@@ -30,6 +30,6 @@
     "webpack": "^4.44.0"
   },
   "dependencies": {
-    "netlify-cli": "^2.59.0"
+    "netlify-cli": "^2.59.2"
   }
 }
