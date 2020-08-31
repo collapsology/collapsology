@@ -2,11 +2,11 @@ module.exports = [
   {
     id: "science",
     fr: {
-      label: "Articles scientifiques",
+      label: "Littérature scientifique",
       link: "/fr/science/"
     },
     en: {
-      label: "Science database",
+      label: "Scientific litterature",
       link: "/en/science/"
     }
   },
