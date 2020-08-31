@@ -13,7 +13,7 @@ pageIntro: "Livres chaudement recommandés pour aborder la collapsologie au coin
 
 {% set metaTitle = pageTitle %}
 {% set metaDescription = pageIntro %}
-{% set metaImage = site.url ~ "/assets/img/social_media.jpg" %}
+{% set metaImage = site.baseUrl ~ "/assets/img/social_media.jpg" %}
 {% set currentSectionId = "books" %}
 
 {% block content %}
@@ -37,7 +37,6 @@ pageIntro: "Livres chaudement recommandés pour aborder la collapsologie au coin
                       srcset="/assets/img/books/_300x480/{{ book.data.cover }} 300w,
                               /assets/img/books/{{ book.data.cover }} 600w"
                       sizes="(min-width: 1344px) 300px,
-                            (min-width: 1024px) 25vw
                             (min-width: 750px) 33vw,
                             (min-width: 500px) 50vw,
                             100vw"

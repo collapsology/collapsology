@@ -9,7 +9,7 @@ pageIntro: "Mieux comprendre les risques d'effondrement sociétaux et écologiqu
 
 {% set metaTitle = pageTitle %}
 {% set metaDescription = pageIntro %}
-{% set metaImage = site.url ~ "/assets/img/social_media.jpg" %}
+{% set metaImage = site.baseUrl ~ "/assets/img/social_media.jpg" %}
 {% set currentSectionId = "home" %}
 
 {% block content %}
@@ -35,8 +35,8 @@ pageIntro: "Mieux comprendre les risques d'effondrement sociétaux et écologiqu
                   srcset="/assets/img/databases/_600x450/database_science.jpg 600w,
                           /assets/img/databases/database_science.jpg 800w"
                   sizes="(min-width: 1344px) 600px,
-                          (min-width: 760px) 50vw,
-                          100vw"
+                         (min-width: 500px) 50vw,
+                         100vw"
                   class="o-fluidimage"
                   alt="Database science">
             </a></div>
@@ -56,10 +56,11 @@ pageIntro: "Mieux comprendre les risques d'effondrement sociétaux et écologiqu
                    srcset="/assets/img/databases/_600x450/database_press.jpg 600w,
                            /assets/img/databases/database_press.jpg 800w"
                    sizes="(min-width: 1344px) 600px,
-                          (min-width: 760px) 50vw,
+                          (min-width: 1024px) 38vw,
+                          (min-width: 500px) 50vw,
                           100vw"
                    class="o-fluidimage"
-                   alt="Database science">
+                   alt="Database presse">
             </a></div>
             <div class="c-card__body">
               <h2 class="c-card__title  c-h2  c-h2--invert"><a href="http://www.cdeclin.be/recherches.php">Articles de presse</a></h2>
@@ -92,15 +93,15 @@ pageIntro: "Mieux comprendre les risques d'effondrement sociétaux et écologiqu
               <article class="c-book">
                 <div class="c-book__cover"><a href="{{- book.data.url -}}">
                   <img src="/assets/img/books/_300x480/{{ book.data.cover }}"
-                        srcset="/assets/img/books/_300x480/{{ book.data.cover }} 300w,
-                                /assets/img/books/{{ book.data.cover }} 600w"
-                        sizes="(min-width: 1344px) 300px,
-                              (min-width: 1024px) 25vw
-                              (min-width: 750px) 33vw,
-                              (min-width: 500px) 50vw,
-                              100vw"
-                        class="o-fluidimage"
-                        alt="{{ book.data.title }}">
+                      srcset="/assets/img/books/_300x480/{{ book.data.cover }} 300w,
+                              /assets/img/books/{{ book.data.cover }} 600w"
+                      sizes="(min-width: 1344px) 300px,
+                             (min-width: 1024px) 25vw,
+                             (min-width: 750px) 33vw,
+                             (min-width: 500px) 50vw,
+                             100vw"
+                      class="o-fluidimage"
+                      alt="{{ book.data.title }}">
                 </a></div>
                 <div class="c-book__body">
                   <p class="c-book__author">{{ book.data.author }}</p>
