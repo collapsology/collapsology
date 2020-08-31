@@ -6,7 +6,7 @@ module.exports = [
       link: "/fr/science/"
     },
     en: {
-      label: "Scientific litterature",
+      label: "Scientific literature",
       link: "/en/science/"
     }
   },
