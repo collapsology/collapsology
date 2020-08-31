@@ -35,7 +35,7 @@
 .c-book__data {
   font-weight: 400;
   font-size: 1rem;
-  color: var(--color-gray5);
+  color: var(--color-gray3);
 
   @include mq(large) {
     font-size: calc(18 / 16 * 1rem);
