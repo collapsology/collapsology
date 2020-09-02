@@ -7,12 +7,16 @@
 }
 
 .c-book__cover {
-  box-sizing: border-box;
   margin-bottom: calc(24 / 16 * 1rem);
-  border: 1px solid var(--color-gray8);
+  border: 1px solid var(--color-gray7);
 
   & > a {
     display: block;
+  }
+
+  & img {
+    width: 100%;
+    object-fit: cover;
   }
 }
 
