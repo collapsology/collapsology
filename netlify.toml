@@ -4,7 +4,10 @@ functions = "functions/"
 publish = "dist/"
 
 [dev]
-port = 3000
+command = "gulp watch"
+framework = "#custom"
+port = 8888
+targetPort = 3000
 
 [[redirects]]
 force = true
