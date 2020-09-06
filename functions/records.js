@@ -8,88 +8,88 @@ const axios = require("axios");
  */
 
 function formatType(type) {
-  let transations;
+  let translations;
   switch (type) {
     case "webpage":
-      transations = {
+      translations = {
         fr: "Site internet",
         en: "Website"
       };
       break;
     case "journalArticle":
-      transations = {
+      translations = {
         fr: "Article de journal",
         en: "Journal article"
       };
       break;
     case "thesis":
-      transations = {
+      translations = {
         fr: "Thèse",
         en: "Thesis"
       };
       break;
     case "report":
-      transations = {
+      translations = {
         fr: "Rapport",
         en: "Report"
       };
       break;
     case "newspaperArticle":
-      transations = {
+      translations = {
         fr: "Article de presse",
         en: "Press article"
       };
       break;
     case "magazineArticle":
-      transations = {
+      translations = {
         fr: "Article de magasine",
         en: "Magazine Article"
       };
       break;
     case "encyclopediaArticle":
-      transations = {
+      translations = {
         fr: "Article d'encyclopédie",
         en: "Encyclopedia Article"
       };
       break;
     case "document":
-      transations = {
+      translations = {
         fr: "Document",
         en: "Document"
       };
       break;
     case "conferencePaper":
-      transations = {
+      translations = {
         fr: "Actes de conférence",
         en: "Conference paper"
       };
       break;
     case "book":
-      transations = {
+      translations = {
         fr: "Livre",
         en: "Book"
       };
       break;
     case "bookSection":
-      transations = {
+      translations = {
         fr: "Chapitre de livre",
         en: "Book section"
       };
       break;
     case "blogPost":
-      transations = {
+      translations = {
         fr: "Blogpost",
         en: "Blogpost"
       };
       break;
     default:
-      transations = {
+      translations = {
         fr: type,
         en: type
       };
   }
 
-  return transations;
+  return translations;
 }
 
 /**
