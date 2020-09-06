@@ -68,7 +68,7 @@ module.exports = function (eleventyConfig) {
   // collections: links EN
   eleventyConfig.addCollection("links_en", function (collection) {
     return collection
-      .getFilteredByGlob("./src/fr/links/**/*.md")
+      .getFilteredByGlob("./src/en/links/**/*.md")
       .sort((a, b) => {
         let titleA = a.data.title.toLowerCase();
         let titleB = b.data.title.toLowerCase();
