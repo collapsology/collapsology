@@ -103,7 +103,6 @@ module.exports = function (eleventyConfig) {
       input: "src",
       output: "dist",
       includes: "_includes",
-      layouts: "_layouts",
       data: "_data"
     },
     templateFormats: ["njk", "md"],
