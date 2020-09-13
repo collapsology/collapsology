@@ -1,7 +1,7 @@
 {
-  "name": "zotero-11ty-alpine",
+  "name": "collapsology-info",
   "version": "1.0.0",
-  "description": "Collapsology website. Using 11ty, AlpineJS and Netlify functions",
+  "description": "Collapsology portal. Using 11ty, Alpine and Netlify functions",
   "main": "index.js",
   "keywords": [],
   "author": "",
