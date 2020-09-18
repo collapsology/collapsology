@@ -6,6 +6,14 @@
     <title>{{ metaTitle ~ " - " }}{{ site[locale].title }}</title>
     <meta name="description" content="{{ metaDescription }}">
 
+    <!-- Preloads -->
+    <link rel="preload" href="/assets/fonts/crimson-text-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/crimson-text-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/lato-300.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/lato-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/lato-italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/lato-700.woff2" as="font" type="font/woff2" crossorigin>
+
     <!-- Twitter + Open Graph -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="{{ site.twitterHandle }}" />
