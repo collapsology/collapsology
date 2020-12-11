@@ -1,10 +1,10 @@
 [build]
-command = "gulp build"
+command = "npm run build"
 functions = "functions/"
 publish = "dist/"
 
 [dev]
-command = "gulp watch"
+command = "npm run watch"
 framework = "#custom"
 port = 8888
 targetPort = 3000
