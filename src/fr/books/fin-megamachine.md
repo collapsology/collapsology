@@ -1,6 +1,6 @@
 ---
 title: "La fin de la mégamachine"
-cover: "fin-de-la-megamachine.jpg"
+cover: "fin-megamachine.jpg"
 author: "Fabian Scheidler"
 editor: "Seuil"
 year: 2020
