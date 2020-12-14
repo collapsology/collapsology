@@ -29,18 +29,16 @@
     "cssnano": "^4.1.10",
     "del": "^6.0.0",
     "dotenv": "^8.2.0",
-    "eslint": "^7.15.0",
-    "eslint-loader": "^4.0.2",
     "gulp": "^4.0.2",
     "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
-    "netlify-cli": "^2.69.4",
+    "netlify-cli": "^2.69.8",
     "postcss": "^8.2.1",
     "sass": "^1.30.0",
     "sharp": "^0.26.3",
-    "webpack": "^5.10.0"
+    "webpack": "^5.10.1"
   }
 }
