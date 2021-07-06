@@ -131,8 +131,8 @@ exports.handler = async function (event, context, callback) {
   };
 
   // get parameters for query or assign default values
-  let limit = event.queryStringParameters.limit ?? 10;
-  let start = event.queryStringParameters.start ?? 0;
+  let limit = event.queryStringParameters.limit || 10;
+  let start = event.queryStringParameters.start || 0;
   let q = event.queryStringParameters.q;
   let tag = event.queryStringParameters.tag;
 
