@@ -13,79 +13,79 @@ function formatType(type) {
     case "webpage":
       translations = {
         fr: "Site internet",
-        en: "Website"
+        en: "Website",
       };
       break;
     case "journalArticle":
       translations = {
         fr: "Article de journal",
-        en: "Journal article"
+        en: "Journal article",
       };
       break;
     case "thesis":
       translations = {
         fr: "Thèse",
-        en: "Thesis"
+        en: "Thesis",
       };
       break;
     case "report":
       translations = {
         fr: "Rapport",
-        en: "Report"
+        en: "Report",
       };
       break;
     case "newspaperArticle":
       translations = {
         fr: "Article de presse",
-        en: "Press article"
+        en: "Press article",
       };
       break;
     case "magazineArticle":
       translations = {
         fr: "Article de magasine",
-        en: "Magazine Article"
+        en: "Magazine Article",
       };
       break;
     case "encyclopediaArticle":
       translations = {
         fr: "Article d'encyclopédie",
-        en: "Encyclopedia Article"
+        en: "Encyclopedia Article",
       };
       break;
     case "document":
       translations = {
         fr: "Document",
-        en: "Document"
+        en: "Document",
       };
       break;
     case "conferencePaper":
       translations = {
         fr: "Actes de conférence",
-        en: "Conference paper"
+        en: "Conference paper",
       };
       break;
     case "book":
       translations = {
         fr: "Livre",
-        en: "Book"
+        en: "Book",
       };
       break;
     case "bookSection":
       translations = {
         fr: "Chapitre de livre",
-        en: "Book section"
+        en: "Book section",
       };
       break;
     case "blogPost":
       translations = {
         fr: "Blogpost",
-        en: "Blogpost"
+        en: "Blogpost",
       };
       break;
     default:
       translations = {
         fr: type,
-        en: type
+        en: type,
       };
   }
 
@@ -105,6 +105,19 @@ function getYear(str) {
 }
 
 /**
+ * Build Zotero Url
+ * @param {String} q
+ * @param {String} tag
+ * @returns {String} Full Zotero URL
+ */
+function buildZoteroUrl(limit, start, q, tag) {
+  let qParam = q ? `&q=${q}` : "";
+  let tagParam = tag ? `&tag=${tag}` : "";
+  let fullUrl = `${process.env.API_URL}items/top?start=${start}&limit=${limit}${qParam}${tagParam}&sort=date&direction=desc`;
+  return fullUrl;
+}
+
+/**
  * Get data from API
  */
 exports.handler = async function (event, context, callback) {
@@ -113,22 +126,22 @@ exports.handler = async function (event, context, callback) {
     headers: {
       "Zotero-API-Version": 3,
       Authorization: `Bearer ${process.env.API_KEY}`,
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   };
 
   // get parameters for query or assign default values
-  let limit = event.queryStringParameters.limit || 10;
-  let start = event.queryStringParameters.start || 0;
-  let tag = event.queryStringParameters.tag || "";
-  let q = event.queryStringParameters.q || "";
+  let limit = event.queryStringParameters.limit ?? 10;
+  let start = event.queryStringParameters.start ?? 0;
+  let q = event.queryStringParameters.q;
+  let tag = event.queryStringParameters.tag;
+
+  // build Zotero Url from params
+  let zoteroUrl = buildZoteroUrl(limit, start, q, tag);
 
   try {
     // query API and wait for response
-    const response = await axios.get(
-      `${process.env.API_URL}items/top?start=${start}&limit=${limit}&q=${q}&tag=${tag}&sort=date&direction=desc`,
-      AXIOS_OPTIONS
-    );
+    const response = await axios.get(zoteroUrl, AXIOS_OPTIONS);
 
     // if we get a response, get the fields and format
     if (response.status === 200) {
@@ -143,7 +156,7 @@ exports.handler = async function (event, context, callback) {
           publisher: item.data.publisher,
           institution: item.data.institution,
           url: item.data.url,
-          summary: item.data.abstractNote
+          summary: item.data.abstractNote,
         };
       });
 
@@ -152,8 +165,8 @@ exports.handler = async function (event, context, callback) {
         statusCode: 200,
         body: JSON.stringify({
           data: zoteroData,
-          total: parseInt(response.headers["total-results"], 10)
-        })
+          total: parseInt(response.headers["total-results"], 10),
+        }),
       });
     } else {
       // log errors if any

@@ -9,7 +9,7 @@ body {
 
   color: var(--color-gray1);
   @include mq(large) {
-    font-size: (18 / 16 * 1rem);
-    line-height: (30 / 18);
+    font-size: calc(18 / 16 * 1rem);
+    line-height: calc(30 / 18);
   }
 }

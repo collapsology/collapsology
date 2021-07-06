@@ -13,12 +13,12 @@ pageIntro: "Database of scientific articles, analysis, academic papers and insti
 {% set currentSectionId = "science" %}
 
 {% block headend %}
-  <script defer src="/assets/js/app.bundle.js"></script>
+  <script type="module" src="/assets/js/app.bundle.js"></script>
 {% endblock %}
 
 {% block content %}
 <main>
-<div id="app" x-data="zotero()" x-init="init()">
+<div id="app" x-data="zotero">
 
   <div class="c-pagesection  c-pagesection--dark  u-padding-top-xl">
     <div class="l-container  l-container--narrow">
@@ -52,7 +52,7 @@ pageIntro: "Database of scientific articles, analysis, academic papers and insti
 
           <template x-if="tags.length">
             <ul class="c-tagcloud">
-              <li class="c-tagcloud__item"><a class="c-tagcloud__link" :class="{ 'is-active': currentTag === '' }" href="#" @click.prevent="getAllRecords()">All tags</a></li>
+              <li class="c-tagcloud__item"><a class="c-tagcloud__link" :class="{ 'is-active': currentTag === '' }" href="#" @click.prevent="clearTags()">All tags</a></li>
               <template x-for="tag in tags" :key="tag.id">
                 <li class="c-tagcloud__item"><a class="c-tagcloud__link" :class="{ 'is-active': currentTag === tag.id }" href="#" @click.prevent="getRecordsByTag(tag.id)" x-text="tag.name"></a></li>
               </template>
@@ -69,7 +69,7 @@ pageIntro: "Database of scientific articles, analysis, academic papers and insti
           <template x-if="totalRecords === 1"><p>1 result</p></template>
           <template x-if="totalRecords > 1"><p><span x-text="totalRecords"></span> results</p></template>
           <ul class="c-listui">
-            <template x-for="item in records" :key="item">
+            <template x-for="item in records" :key="item.id">
               <li>
                 <article class="c-record">
                   <p class="c-record__meta">

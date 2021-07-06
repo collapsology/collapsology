@@ -1,5 +1,10 @@
 const axios = require("axios");
 
+/**
+ *
+ * @param {string} tag
+ * @returns formatted tag for display
+ */
 function formatTag(tag) {
   const formattedTag = tag.replace(/-/g, " ");
   return formattedTag;
@@ -12,23 +17,20 @@ exports.handler = async function (event, context, callback) {
     headers: {
       "Zotero-API-Version": 3,
       Authorization: `Bearer ${process.env.API_KEY}`,
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   };
 
   try {
     // first query
-    const response = await axios.get(
-      `${process.env.API_URL}/items/top/tags?limit=${TAGS_PER_QUERY}`,
-      AXIOS_OPTIONS
-    );
+    const response = await axios.get(`${process.env.API_URL}/items/top/tags?limit=${TAGS_PER_QUERY}`, AXIOS_OPTIONS);
 
     if (response.status === 200) {
       // push first results
       response.data.map((item) => {
         tags.push({
           id: item.tag,
-          name: formatTag(item.tag)
+          name: formatTag(item.tag),
         });
       });
 
@@ -40,10 +42,7 @@ exports.handler = async function (event, context, callback) {
       const newQueries = [];
       for (let i = 1; i <= moreQueries; i++) {
         let start = i * TAGS_PER_QUERY;
-        let query = axios.get(
-          `${process.env.API_URL}tags?start=${start}limit=${TAGS_PER_QUERY}`,
-          AXIOS_OPTIONS
-        );
+        let query = axios.get(`${process.env.API_URL}tags?start=${start}limit=${TAGS_PER_QUERY}`, AXIOS_OPTIONS);
         newQueries.push(query);
       }
 
@@ -53,7 +52,7 @@ exports.handler = async function (event, context, callback) {
         response.data.map((item) => {
           tags.push({
             id: item.tag,
-            name: formatTag(item.tag)
+            name: formatTag(item.tag),
           });
         });
       });
@@ -70,7 +69,7 @@ exports.handler = async function (event, context, callback) {
       // send data
       callback(null, {
         statusCode: 200,
-        body: JSON.stringify(tags)
+        body: JSON.stringify(tags),
       });
     } else {
       console.error(response.statusText);

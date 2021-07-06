@@ -24,4 +24,4 @@ function init() {
   });
 }
 
-export { init };
+export default init;

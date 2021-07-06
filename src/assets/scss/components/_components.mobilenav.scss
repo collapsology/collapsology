@@ -22,7 +22,7 @@
   font-weight: 300;
   font-family: $fontstack-main;
   font-size: calc(29 / 16 * 1rem);
-  line-height: (36 / 29);
+  line-height: calc(36 / 29);
   color: var(--color-gray1);
   transition: color 0.2s ease-in-out;
   text-decoration: none;
@@ -34,12 +34,12 @@
 
   @include mq(small) {
     font-size: calc(38 / 16 * 1rem);
-    line-height: (48 / 38);
+    line-height: calc(48 / 38);
   }
 
   @include mq(medium) {
     font-size: calc(51 / 16 * 1rem);
-    line-height: (60 / 51);
+    line-height: calc(60 / 51);
   }
 }
 
