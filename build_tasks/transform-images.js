@@ -12,8 +12,8 @@ const transforms = [
     options: {
       width: 600,
       height: 450,
-      fit: "cover"
-    }
+      fit: "cover",
+    },
   },
   {
     src: "./src/assets/img/books/*",
@@ -21,9 +21,9 @@ const transforms = [
     options: {
       width: 300,
       height: 480,
-      fit: "cover"
-    }
-  }
+      fit: "cover",
+    },
+  },
 ];
 
 // make sure paths do not end with slash
@@ -36,7 +36,7 @@ function sanitizePath(filepath) {
 }
 
 // resize images
-function resizeImages(done) {
+function init() {
   transforms.forEach(function (transform) {
     // if folder does not exist create it with all above folders
     if (!fs.existsSync(transform.dist)) {
@@ -59,10 +59,6 @@ function resizeImages(done) {
         });
     });
   });
-  done();
 }
 
-// exports (Common JS)
-module.exports = {
-  resize: resizeImages
-};
+module.export = init();

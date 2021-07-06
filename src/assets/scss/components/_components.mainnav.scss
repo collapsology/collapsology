@@ -22,8 +22,8 @@
   padding: calc(5 / 16 * 1rem) 0 calc(3 / 16 * 1rem);
   border-bottom: 2px solid transparent;
   font-weight: 400;
-  font-size: (18 / 16 * 1rem);
-  line-height: (24 / 18);
+  font-size: calc(18 / 16 * 1rem);
+  line-height: calc(24 / 18);
   text-decoration: none;
   color: var(--color-gray4);
 

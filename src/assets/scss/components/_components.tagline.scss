@@ -6,8 +6,8 @@
   margin: 0 auto;
 
   font-weight: 600;
-  font-size: (32 / 16 * 1rem);
-  line-height: (36 / 32);
+  font-size: calc(32 / 16 * 1rem);
+  line-height: calc(36 / 32);
   font-family: $fontstack-alt;
   color: var(--color-white);
   text-align: center;
@@ -19,20 +19,20 @@
   @include mq(small) {
     max-width: 420px;
     font-weight: 400;
-    font-size: (38 / 16 * 1rem);
-    line-height: (36 / 38);
+    font-size: calc(38 / 16 * 1rem);
+    line-height: calc(36 / 38);
   }
 
   @include mq(medium) {
     max-width: 540px;
     font-weight: 400;
-    font-size: (43 / 16 * 1rem);
-    line-height: (48 / 43);
+    font-size: calc(43 / 16 * 1rem);
+    line-height: calc(48 / 43);
   }
 
   @include mq(large) {
     max-width: 900px;
-    font-size: (68 / 16 * 1rem);
-    line-height: (72 / 68);
+    font-size: calc(68 / 16 * 1rem);
+    line-height: calc(72 / 68);
   }
 }
