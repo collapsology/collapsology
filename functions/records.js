@@ -114,7 +114,6 @@ function buildZoteroUrl(limit, start, q, tag) {
   let qParam = q ? `&q=${q}` : "";
   let tagParam = tag ? `&tag=${tag}` : "";
   let fullUrl = `${process.env.API_URL}items/top?start=${start}&limit=${limit}${qParam}${tagParam}&sort=date&direction=desc`;
-  console.log(fullUrl);
   return fullUrl;
 }
 
