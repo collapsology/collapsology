@@ -1,7 +1,7 @@
 {
   "name": "collapsology-info",
-  "version": "1.0.0",
-  "description": "Collapsology portal. Using 11ty, Alpine and Netlify functions",
+  "version": "1.2.0",
+  "description": "Collapsology portal. Using Eleventy (11ty), Alpine and Netlify functions",
   "main": "index.js",
   "keywords": [],
   "author": "",
