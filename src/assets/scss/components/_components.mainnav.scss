@@ -25,12 +25,12 @@
   font-size: calc(18 / 16 * 1rem);
   line-height: calc(24 / 18);
   text-decoration: none;
-  color: var(--color-gray4);
+  color: var(--color-gray5);
 
   transition: color 0.15s ease-in-out;
 
   &:hover {
-    color: var(--color-gray5);
+    color: var(--color-gray6);
     text-decoration: none;
   }
 }

@@ -94,6 +94,14 @@
   margin: 0;
   grid-area: dev;
 
+  & a {
+    transition: color 0.2s ease-in-out;
+  }
+
+  & a:hover {
+    color: var(--color-white);
+  }
+
   @include mq(medium) {
     text-align: right;
   }

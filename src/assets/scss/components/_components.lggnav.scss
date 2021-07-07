@@ -23,13 +23,13 @@
   padding: 0;
   border-bottom: 2px solid transparent;
   padding: calc(3 / 16 * 1rem) 0;
-  color: var(--color-gray4);
+  color: var(--color-gray5);
   text-decoration: none;
   font-size: 1rem;
   line-height: 1;
 
   &:hover {
-    color: var(--color-gray5);
+    color: var(--color-gray6);
     text-decoration: none;
   }
 }
