@@ -13,7 +13,7 @@
 
 .c-searchform__input {
   box-sizing: border-box;
-  padding: 18px 60px 18px 18px;
+  padding: 6px 60px 6px 12px;
   border: 1px solid var(--color-gray3);
   background-color: rgba(0, 0, 0, 0.3);
   width: 100%;
@@ -24,8 +24,11 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-
   border-radius: 0;
+
+  @include mq(medium) {
+    padding: 18px 60px 18px 18px;
+  }
 }
 
 .c-searchform__input:focus {
