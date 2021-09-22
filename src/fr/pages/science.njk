@@ -58,7 +58,13 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
             </div>
           </div>
 
-          <p v-if="loading">... recherche base de données ...</p>
+          <div v-if="loading" class="c-message">
+            <div class="c-message__icon">{% include "svg/spinner.svg" %}</div>
+            <div class="c-message__text">
+              <p>Recherche dans la base de données</p>
+            </div>
+          </div>
+
           <p v-if="!loading && totalRecords === 0">Pas de résultats</p>
           <div v-if="!loading && totalRecords > 0">
             <div>

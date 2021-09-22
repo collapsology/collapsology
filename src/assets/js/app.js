@@ -12,8 +12,8 @@ createApp({
   currentPage: 1,
   totalPages: 0,
   currentTag: "",
-  needle: "", // reactive (v-model)
-  searchQuery: "", // explicitly set
+  needle: "",
+  searchQuery: "",
   /**
    * Fetch records from proxy
    * - fetchRecords() is called with v-effect
@@ -57,15 +57,20 @@ createApp({
   },
   setSearch() {
     this.searchQuery = this.needle;
+    this.currentPage = 1;
   },
   clearSearch() {
     this.searchQuery = "";
+    this.needle = "";
+    this.currentPage = 1;
   },
   setTag(id) {
     this.currentTag = id;
+    this.currentPage = 1;
   },
   clearTag() {
     this.currentTag = "";
+    this.currentPage = 1;
   },
   prevPage() {
     if (this.currentPage === 1) return;

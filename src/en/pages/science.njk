@@ -58,7 +58,15 @@ pageIntro: "Database of scientific articles, analysis, academic papers and insti
             </div>
           </div>
 
-          <p v-if="loading">... searching database ...</p>
+          <p>Needle: <span v-text="needle"></span></p>
+
+          <div v-if="loading" class="c-message">
+            <div class="c-message__icon">{% include "svg/spinner.svg" %}</div>
+            <div class="c-message__text">
+              <p>Searching database</p>
+            </div>
+          </div>
+
           <p v-if="!loading && totalRecords === 0">Sorry, no result found</p>
           <div v-if="!loading && totalRecords > 0">
             <div>

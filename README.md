@@ -6,7 +6,7 @@
 
 ## Technologies
 
-Powered by [Eleventy](https://www.11ty.dev/), [Gulp](https://gulpjs.com/), [AlpineJS](https://github.com/alpinejs/alpine) and [Zotero](https://www.zotero.org/).
+Powered by [Eleventy](https://www.11ty.dev/), [Gulp](https://gulpjs.com/), [Petite vue](https://github.com/alpinejs/alpine) and [Zotero](https://www.zotero.org/).
 
 Developed by [Webstoemp](https://www.webstoemp.com)
 
@@ -14,5 +14,5 @@ Developed by [Webstoemp](https://www.webstoemp.com)
 
 - clone repository
 - [install Node and NPM](https://nodejs.org)
-- install netlify-cli globally `npm install -g netlify-cli`
-- run `netlify dev`
+- install npm modules `npm install`
+- run `npx netlify dev` (port 3000 and 8888 need to be free)

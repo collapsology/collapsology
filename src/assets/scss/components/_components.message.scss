@@ -1,0 +1,25 @@
+// --------------------------------
+// =message
+// --------------------------------
+
+.c-message {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "icon text";
+  gap: calc(18 / 16 * 1rem);
+  background-color: var(--color-gray8);
+  padding: calc(18 / 16 * 1rem);
+  border-radius: 6px;
+}
+
+.c-message__icon {
+  grid-area: icon;
+}
+
+.c-message__text {
+  grid-area: text;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
