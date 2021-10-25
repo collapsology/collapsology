@@ -13,8 +13,20 @@
     </nav>
     <nav class="c-mobilemenu__languages">
       {% for lgg in languages %}
-        {% if loop.first %}<ul class="c-mobilelgg">{% endif %}
-          <li class="c-mobilelgg__item"><a class="c-mobilelgg__link  {{ 'is-active' if lgg.code == locale }}" href="/{{- lgg.code -}}/">{{ lgg.label }}</a></li>
+        {% if loop.first %}<ul class="c-lggnav">{% endif %}
+          {% set translatedUrl = "/" ~ lgg.code ~ "/" %}
+
+          {# loop through all the content of the site #}
+          {% for item in collections.all %}
+
+            {% if item.data.translationKey == translationKey and item.data.locale == lgg.code %}
+              {% set translatedUrl = item.url %}
+            {% endif %}
+
+          {% endfor %}
+
+          <li class="c-mobilelgg__item"><a class="c-mobilelgg__link  {{ 'is-active' if lgg.code == locale }}" href="{{ translatedUrl }}">{{ lgg.label }}</a></li>
+
         {% if loop.last %}</ul>{% endif %}
       {% endfor %}
     </nav>
