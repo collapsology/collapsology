@@ -171,7 +171,10 @@ exports.handler = async function (event, context, callback) {
     } else {
       // log errors if any
       console.error(response.statusText);
-      return { statusCode: response.status, body: response.statusText };
+      return {
+        statusCode: response.status,
+        body: response.statusText,
+      };
     }
   } catch (error) {
     // log erors if API call fails

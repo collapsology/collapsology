@@ -80,8 +80,8 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
                       <span v-if="item.year" class="c-record__year" v-text="',' + item.year"></span>
                     </p>
                     <h2 class="c-record__title  c-h3">
-                      <template v-if="item.url">
-                        <a href="{{ item.url }}" target="_blank" v-text="item.title"></a>
+                      <template v-if="item.url !== ''">
+                        <a :href="item.url" target="_blank" v-text="item.title"></a>
                       </template>
                       <template v-else>
                         <span v-text="item.title"></span>
