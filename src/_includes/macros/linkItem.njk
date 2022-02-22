@@ -1,0 +1,6 @@
+{% macro linkItem(url,title,content) %}
+  <article class="c-link">
+    <h3 class="c-link__title  c-h3"><a href="{{- url -}}">{{ title }}</a></h3>
+    <div class="c-link__summary">{{ content }}</div>
+  </article>
+{% endmacro %}

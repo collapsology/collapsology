@@ -1,8 +1,8 @@
 ---
-permalink: /{{ locale }}/liens/index.html
+permalink: /{{ locale }}/links/index.html
 translationKey: "linksPage"
-pageTitle: "Sites et liens"
-pageIntro: "Notre sélection de liens et de sites qui traitent de près ou de loin des différents sujets abordés par la collapsologie."
+pageTitle: "Websites and links"
+pageIntro: "Our selection of links and sites. All of them focus on one or more of the various topics and scientific disciplines that inspired the collapsology approach."
 ---
 
 {% extends "layouts/base.njk" %}
@@ -11,6 +11,8 @@ pageIntro: "Notre sélection de liens et de sites qui traitent de près ou de lo
 {% set metaDescription = pageIntro %}
 {% set metaImage = site.baseUrl ~ "/assets/img/social_media.jpg" %}
 {% set currentSectionId = "links" %}
+
+{% from "macros/linkItem.njk" import linkItem %}
 
 {% block content %}
 <main>
@@ -23,7 +25,7 @@ pageIntro: "Notre sélection de liens et de sites qui traitent de près ou de lo
     </div>
   </div>
 
-  {% set linksByTypes = collections.linksByTypes_fr %}
+  {% set linksByTypes = collections.linksByTypes_en %}
   {% for type, links in linksByTypes %}
     <div class="c-pagesection  c-pagesection--border">
       <div class="l-container  l-container--narrow">
@@ -32,10 +34,11 @@ pageIntro: "Notre sélection de liens et de sites qui traitent de près ou de lo
         {% for link in links %}
           {% if loop.first %}<ul class="l-grid  l-grid--gap  l-grid--2cols@medium">{% endif %}
             <li>
-              <article class="c-link">
-                <h3 class="c-link__title  c-h3"><a href="{{- link.data.url -}}">{{ link.data.title }}</a></h3>
-                <div class="c-link__summary">{{ link.templateContent | safe }}</div>
-              </article>
+              {{ linkItem(
+                url = link.data.url,
+                title = link.data.title,
+                content = link.templateContent | safe
+              ) }}
             </li>
           {% if loop.last %}</ul>{% endif %}
         {% endfor %}

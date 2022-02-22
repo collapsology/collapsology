@@ -1,8 +1,8 @@
 ---
 permalink: /{{ locale }}/science/index.html
 translationKey: "sciencePage"
-pageTitle: "Database scientifique"
-pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires, communications de colloques, rapports d’institutions publiques et d'organisations indépendantes."
+pageTitle: "Science Database"
+pageIntro: "Database of scientific articles, analysis, academic papers and institutional reports on topics related to collapsology."
 ---
 
 {% extends "layouts/base.njk" %}
@@ -23,13 +23,13 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
       use only v-text / v-html with petite-vue
       to avoid collision with nunjucks rendering
     #}
-    <div id="app" v-scope @mounted="fetchTags()" v-effect="fetchRecords()">
+    <div id="app" v-scope @vue:mounted="fetchTags()" v-effect="fetchRecords()">
 
       <div class="c-pagesection  c-pagesection--dark  u-padding-top-xl">
         <div class="l-container  l-container--narrow">
           <h1 class="c-h1  u-text-white">{{ pageTitle }}</h1>
           <p class="c-pageintro">{{ pageIntro }}</p>
-          <h2 class="u-hide">Recherche</h2>
+          <h2 class="u-hide">Search</h2>
           <form class="c-searchform" @submit.prevent="setSearch()">
             <div class="c-searchform__field">
               <input class="c-searchform__input" type="search" v-model="needle">
@@ -45,15 +45,15 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
 
           <div v-if="!loading" class="c-filters">
             <div class="c-filters__controls">
-              <button @click="filtersOpen = !filtersOpen" aria-controls="filtersBody" aria-expanded="filtersOpen = !filtersOpen" class="c-button  c-button--secondary">Filtrer par tag <span class="c-icon  c-icon--small" aria-hidden="true">{% include "svg/icon_filters.svg" %}</span></button>
+              <button @click="filtersOpen = !filtersOpen" aria-controls="filtersBody" aria-expanded="filtersOpen = !filtersOpen" class="c-button  c-button--secondary">Filter by tag <span class="c-icon  c-icon--small" aria-hidden="true">{% include "svg/icon_filters.svg" %}</span></button>
             </div>
             <div id="filtersBody" class="c-filters__body" :class="{ 'is-open': filtersOpen }">
 
               <ul v-if="tags.length > 0" class="c-tagcloud">
-                <li class="c-tagcloud__item"><a class="c-tagcloud__link" :class="{ 'is-active': currentTag === '' }" href="#" @click.prevent="clearTag()">Tous</a></li>
+                <li class="c-tagcloud__item"><a class="c-tagcloud__link" :class="{ 'is-active': currentTag === '' }" href="#" @click.prevent="clearTag()">All tags</a></li>
                 <li v-for="tag in tags" :key="tag.id" class="c-tagcloud__item"><a class="c-tagcloud__link" :class="{ 'is-active': currentTag === tag.id }" href="#" @click.prevent="setTag(tag.id)" v-text="tag.name"></a></li>
               </ul>
-              <p v-else>Pas de tags</p>
+              <p v-else>No tags found</p>
 
             </div>
           </div>
@@ -61,23 +61,19 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
           <div v-if="loading" class="c-message">
             <div class="c-message__icon">{% include "svg/spinner.svg" %}</div>
             <div class="c-message__text">
-              <p>Recherche dans la base de données</p>
+              <p>Searching database</p>
             </div>
           </div>
 
-          <p v-if="!loading && totalRecords === 0">Pas de résultats</p>
+          <p v-if="!loading && totalRecords === 0">Sorry, no result found</p>
           <div v-if="!loading && totalRecords > 0">
             <div>
-              <p v-text="totalRecords + ' références'"></p>
+              <p v-text="totalRecords + ' records'"></p>
               <ul class="c-listui">
                 <li v-for="item in records" :key="item.id">
                   <article class="c-record">
                     <p class="c-record__meta">
-                      <span class="c-record__type" v-text="item.type.en"></span>
-                      <span v-if="item.author" class="c-record__author" v-text="' - ' + item.author"></span>
-                      <span v-if="item.publication" class="c-record__publication" v-text="' - ' + item.publication"></span>
-                      <span v-if="item.institution" class="c-record__institution" v-text="' - ' + item.institution"></span>
-                      <span v-if="item.year" class="c-record__year" v-text="',' + item.year"></span>
+                      <span class="c-record__type" v-text="item.type.fr"></span><span v-if="item.author" class="c-record__author" v-text="' - ' + item.author"></span><span v-if="item.publication" class="c-record__publication" v-text="' - ' + item.publication"></span><span v-if="item.institution" class="c-record__institution" v-text="' - ' + item.institution"></span><span v-if="item.year" class="c-record__year" v-text="', ' + item.year"></span>
                     </p>
                     <h2 class="c-record__title  c-h3">
                       <template v-if="item.url !== ''">
@@ -88,7 +84,7 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
                       </template>
                     </h2>
                     <details v-if="item.summary" class="c-record__summary" closed>
-                      <summary class="c-record__summary-trigger">Display summary</summary>
+                      <summary class="c-record__summary-trigger">Afficher le résumé</summary>
                       <div class="c-record__summary-content" v-text="item.summary"></div>
                     </details>
                   </article>
@@ -119,6 +115,6 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
         </div>
       </div>
 
-    </div>
+    </div> {# end app #}
   </main>
 {% endblock %}

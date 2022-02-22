@@ -12,6 +12,9 @@ pageIntro: "Mieux comprendre les risques d'effondrement sociétaux et écologiqu
 {% set metaImage = site.baseUrl ~ "/assets/img/social_media.jpg" %}
 {% set currentSectionId = "home" %}
 
+{% from "macros/bookItem.njk" import bookItem %}
+{% from "macros/linkItem.njk" import linkItem %}
+
 {% block content %}
 <main>
 
@@ -44,7 +47,7 @@ pageIntro: "Mieux comprendre les risques d'effondrement sociétaux et écologiqu
             </a></div>
             <div class="c-card__body">
               <h2 class="c-card__title  c-h2  c-h2--invert"><a href="/{{ locale }}/science/">Littérature scientifique</a></h2>
-              <p class="c-text-gray5">Une base de données d'articles scientifiques, de livres académiques, de communications de colloques, de rapports d’institutions publiques et indépendantes.</p>
+              <p class="c-text-gray5">Une base de données d'articles scientifiques, de livres académiques, de communications de colloques, de rapports d'institutions publiques et indépendantes.</p>
               <p><a class="c-button  c-button--invert  c-button--cta" href="/{{ locale }}/science/">Bib.Collapse</a></p>
             </div>
           </div>
@@ -94,28 +97,14 @@ pageIntro: "Mieux comprendre les risques d'effondrement sociétaux et écologiqu
           {% if loop.first %}<ul class="l-grid  l-grid--gap  l-grid--2cols@small  l-grid--3cols@medium">{% endif %}
 
             <li>
-              <article class="c-book">
-                <div class="c-book__cover"><a href="{{- book.data.url -}}">
-                  <img src="/assets/img/books/_300x480/{{ book.data.cover }}"
-                      srcset="/assets/img/books/_300x480/{{ book.data.cover }} 300w,
-                              /assets/img/books/{{ book.data.cover }} 600w"
-                      sizes="(min-width: 1344px) 300px,
-                             (min-width: 1024px) 25vw,
-                             (min-width: 750px) 33vw,
-                             (min-width: 500px) 50vw,
-                             100vw"
-                      width="600"
-                      height="960"
-                      class="o-fluidimage"
-                      alt="{{ book.data.title }}"
-                      loading="lazy">
-                </a></div>
-                <div class="c-book__body">
-                  <p class="c-book__author">{{ book.data.author }}</p>
-                  <h3 class="c-book__title  c-h4"><a href="{{- book.data.url -}}">{{ book.data.title }}</a></h3>
-                  <p class="c-book__data">{{ book.data.editor }} - {{ book.data.year }}</p>
-                </div>
-              </article>
+              {{ bookItem(
+                url = book.data.url, 
+                cover = book.data.cover, 
+                title = book.data.title,
+                author = book.data.author, 
+                editor = book.data.editor, 
+                year = book.data.year
+              ) }}
             </li>
 
           {% if loop.last %}</ul>{% endif %}
@@ -141,10 +130,11 @@ pageIntro: "Mieux comprendre les risques d'effondrement sociétaux et écologiqu
         {% for link in links %}
           {% if loop.first %}<ul class="l-grid  l-grid--colgap  l-grid--rowgap-s  l-grid--2cols@medium">{% endif %}
             <li>
-              <article class="c-link">
-                <h3 class="c-link__title  c-h3"><a href="{{- link.data.url -}}">{{ link.data.title }}</a></h3>
-                <div class="c-link__summary">{{ link.templateContent | safe }}</div>
-              </article>
+              {{ linkItem(
+                url = link.data.url,
+                title = link.data.title,
+                content = link.templateContent | safe
+              ) }}
             </li>
           {% if loop.last %}</ul>{% endif %}
         {% endfor %}
