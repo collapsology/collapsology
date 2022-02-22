@@ -6,7 +6,15 @@
     <nav class="c-siteheader__nav">
       {% for item in mainnav %}
         {% if loop.first %}<ul class="c-mainnav">{% endif %}
-          <li class="c-mainnav__item"><a class="c-mainnav__link  {{ 'is-active' if item.id == currentSectionId }}" href="{{- item[locale].link -}}">{{ item[locale].label }}</a></li>
+
+          {% set activeClass = "" %}
+          {% set activeAria = "" %}
+          {% if item.id == currentSectionId %}
+            {% set activeClass = "is-active" %}
+            {% set activeAria = 'aria-current="page"' | safe %}
+          {% endif %}
+
+          <li class="c-mainnav__item"><a href="{{- item[locale].link -}}" class="c-mainnav__link  {{ activeClass }}" {{ activeAria }}">{{ item[locale].label }}</a></li>
         {% if loop.last %}</ul>{% endif %}
       {% endfor %}
     </nav>
@@ -27,7 +35,14 @@
 
           {% endfor %}
 
-          <li class="c-lggnav__item"><a class="c-lggnav__link  {{ 'is-active' if lgg.code == locale }}" href="{{ translatedUrl }}">{{ lgg.label }}</a></li>
+          {% set activeClass = "" %}
+          {% set activeAria = "" %}
+          {% if lgg.code == locale %}
+            {% set activeClass = "is-active" %}
+            {% set activeAria = 'aria-current="page"' | safe %}
+          {% endif %}
+
+          <li class="c-lggnav__item"><a class="c-lggnav__link  {{ activeClass }}" {{ activeAria }} href="{{ translatedUrl }}">{{ lgg.label }}</a></li>
 
         {% if loop.last %}</ul>{% endif %}
       {% endfor %}
