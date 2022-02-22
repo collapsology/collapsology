@@ -1,4 +1,6 @@
 const axios = require("axios");
+const API_URL = process.env.API_URL;
+const API_KEY = process.env.API_KEY;
 
 /**
  * Format publication type
@@ -113,7 +115,7 @@ function getYear(str) {
 function buildZoteroUrl(limit, start, q, tag) {
   let qParam = q ? `&q=${q}` : "";
   let tagParam = tag ? `&tag=${tag}` : "";
-  let fullUrl = `${process.env.API_URL}items/top?start=${start}&limit=${limit}${qParam}${tagParam}&sort=date&direction=desc`;
+  let fullUrl = `${API_URL}/items/top?start=${start}&limit=${limit}${qParam}${tagParam}&sort=date&direction=desc`;
   return fullUrl;
 }
 
@@ -125,7 +127,7 @@ exports.handler = async function (event, context, callback) {
   const AXIOS_OPTIONS = {
     headers: {
       "Zotero-API-Version": 3,
-      Authorization: `Bearer ${process.env.API_KEY}`,
+      Authorization: `Bearer ${API_KEY}`,
       "Content-Type": "application/json",
     },
   };

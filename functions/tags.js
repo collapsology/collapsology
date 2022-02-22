@@ -1,4 +1,6 @@
 const axios = require("axios");
+const API_URL = process.env.API_URL;
+const API_KEY = process.env.API_KEY;
 
 /**
  *
@@ -16,14 +18,14 @@ exports.handler = async function (event, context, callback) {
   const AXIOS_OPTIONS = {
     headers: {
       "Zotero-API-Version": 3,
-      Authorization: `Bearer ${process.env.API_KEY}`,
+      Authorization: `Bearer ${API_KEY}`,
       "Content-Type": "application/json",
     },
   };
 
   try {
     // first query
-    const response = await axios.get(`${process.env.API_URL}/items/top/tags?limit=${TAGS_PER_QUERY}`, AXIOS_OPTIONS);
+    const response = await axios.get(`${API_URL}/items/top/tags?limit=${TAGS_PER_QUERY}`, AXIOS_OPTIONS);
 
     if (response.status === 200) {
       // push first results
@@ -42,7 +44,7 @@ exports.handler = async function (event, context, callback) {
       const newQueries = [];
       for (let i = 1; i <= moreQueries; i++) {
         let start = i * TAGS_PER_QUERY;
-        let query = axios.get(`${process.env.API_URL}tags?start=${start}limit=${TAGS_PER_QUERY}`, AXIOS_OPTIONS);
+        let query = axios.get(`${API_URL}/items/top/tags?start=${start}limit=${TAGS_PER_QUERY}`, AXIOS_OPTIONS);
         newQueries.push(query);
       }
 
