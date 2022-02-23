@@ -1,6 +1,9 @@
 module.exports = function (eleventyConfig) {
   // filters
-  eleventyConfig.addFilter("date", require("./src/_11ty/filters/date.js"));
+  eleventyConfig.addFilter("dateISO", require("./src/_11ty/filters/date.js").dateISO);
+  eleventyConfig.addFilter("dateFull", require("./src/_11ty/filters/date.js").dateFull);
+  eleventyConfig.addFilter("dateFeed", require("./src/_11ty/filters/date.js").dateFeed);
+  eleventyConfig.addFilter("dateYear", require("./src/_11ty/filters/date.js").dateYear);
   eleventyConfig.addFilter("limit", require("./src/_11ty/filters/limit.js"));
   eleventyConfig.addFilter("translate", require("./src/_11ty/filters/translate.js"));
   eleventyConfig.addFilter("shuffle", require("./src/_11ty/filters/shuffle.js"));

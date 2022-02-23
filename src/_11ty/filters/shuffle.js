@@ -8,6 +8,6 @@
 const lodash = require("lodash");
 
 module.exports = function (arr) {
-  let shuffled = lodash.shuffle(arr);
+  const shuffled = lodash.shuffle(arr);
   return shuffled;
 };
