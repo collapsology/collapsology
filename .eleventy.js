@@ -18,8 +18,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("linksByTypes_en", require("./src/_11ty/collections/linksByTypes_en.js"));
 
   // passthrough copy
-  eleventyConfig.addPassthroughCopy("./src/apple-touch-icon.png");
-  eleventyConfig.addPassthroughCopy("./src/favicon.ico");
+  eleventyConfig.addPassthroughCopy({"./src/static/":"/"});
   eleventyConfig.addPassthroughCopy("./src/assets/img/");
   eleventyConfig.addPassthroughCopy("./src/assets/fonts/");
 
