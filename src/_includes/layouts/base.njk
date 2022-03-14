@@ -30,9 +30,9 @@
     {% block headend %}{% endblock %}
   </head>
   <body>
-    {% include "components/siteheader.njk" %}
-    {% include "components/mobilemenu.njk" %}
+    {% include "partials/siteheader.njk" %}
+    {% include "partials/mobilemenu.njk" %}
     {% block content %}{% endblock %}
-    {% include "components/sitefooter.njk" %}
+    {% include "partials/sitefooter.njk" %}
   </body>
 </html>

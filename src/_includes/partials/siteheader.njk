@@ -3,21 +3,7 @@
     <div class="c-siteheader__logo">
       <p class="c-logo"><a class="c-logo__link" href="/{{ locale }}/">{% include "svg/logo.svg" %}</a></p>
     </div>
-    <nav class="c-siteheader__nav">
-      {% for item in mainnav %}
-        {% if loop.first %}<ul class="c-mainnav">{% endif %}
-
-          {% set activeClass = "" %}
-          {% set activeAria = "" %}
-          {% if item.id == currentSectionId %}
-            {% set activeClass = "is-active" %}
-            {% set activeAria = 'aria-current="page"' | safe %}
-          {% endif %}
-
-          <li class="c-mainnav__item"><a href="{{- item[locale].link -}}" class="c-mainnav__link  {{ activeClass }}" {{ activeAria }}">{{ item[locale].label }}</a></li>
-        {% if loop.last %}</ul>{% endif %}
-      {% endfor %}
-    </nav>
+    {% include "partials/mainnav.njk" %}
     <p class="c-siteheader__navtrigger">
       <a class="c-hamburger__link  js-navtoggle" href="#sitefooter">{% include "svg/hamburger.svg" %}</a>
     </p>

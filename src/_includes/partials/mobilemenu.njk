@@ -7,7 +7,15 @@
     <nav class="c-mobilemenu__navigation">
       {% for item in mainnav %}
         {% if loop.first %}<ul class="c-mobilenav">{% endif %}
-          <li class="c-mobilenav__item"><a class="c-mobilenav__link  {{ 'is-active' if item.id == currentSectionId }}" href="{{- item[locale].link -}}">{{ item[locale].label }}</a></li>
+
+          {% set activeClass = "" %}
+          {% set activeAria = "" %}
+          {% if item.id == currentSectionId %}
+            {% set activeClass = "is-active" %}
+            {% set activeAria = 'aria-current="page"' | safe %}
+          {% endif %}
+
+          <li class="c-mobilenav__item"><a class="c-mobilenav__link  {{ activeClass }}" href="{{- item[locale].link -}}" {{ activeAria }}>{{ item[locale].label }}</a></li>
         {% if loop.last %}</ul>{% endif %}
       {% endfor %}
     </nav>

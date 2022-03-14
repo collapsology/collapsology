@@ -5,7 +5,7 @@ module.exports = {
   fr: {
     title: "Portail de Collapsologie",
     description:
-      "Mieux comprendre les risques d’effondrements de nos civilisations industrielles."
+      "Mieux comprendre les risques d'effondrements de nos civilisations industrielles."
   },
   en: {
     title: "Collapsology Portal",
