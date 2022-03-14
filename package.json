@@ -24,8 +24,8 @@
     "watch:scripts": "onchange \"./src/assets/js/**/*\" -- npm run scripts:dev",
     "watch:styles": "onchange \"./src/assets/scss/**/*\" -- npm run styles:dev",
     "build": "npm-run-all clean --parallel images styles:prod scripts:prod eleventy",
-    "watch": "npm-run-all --parallel server watch:*",
-    "dev": "npm run watch"
+    "dev": "npm-run-all --parallel server watch:*",
+    "watch": "npm run dev"
   },
   "browserslist": [
     "last 2 versions",
@@ -34,20 +34,21 @@
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "autoprefixer": "^10.4.2",
-    "axios": "^0.26.0",
-    "cssnano": "^5.0.17",
+    "axios": "^0.26.1",
+    "browser-sync": "^2.27.8",
+    "cssnano": "^5.1.4",
     "dotenv": "^16.0.0",
-    "esbuild": "^0.14.23",
+    "esbuild": "^0.14.26",
     "lodash": "^4.17.21",
-    "luxon": "^2.3.0",
-    "netlify-cli": "^9.6.11",
+    "luxon": "^2.3.1",
+    "netlify-cli": "^9.13.0",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
     "petite-vue": "^0.4.1",
-    "postcss": "^8.4.6",
+    "postcss": "^8.4.8",
     "postcss-cli": "^9.1.0",
     "rimraf": "^3.0.2",
-    "sass": "^1.49.8",
-    "sharp": "^0.30.1"
+    "sass": "^1.49.9",
+    "sharp": "^0.30.3"
   }
 }
