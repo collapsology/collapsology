@@ -5,27 +5,29 @@
 
   <article class="c-book">
     <div class="c-book__cover"><a href="{{- url -}}">
-    <picture>
-      <source type="image/webp"
-              srcset="/assets/img/books/_300x480/{{ webpCover }} 300w,
-                      /assets/img/books/{{ webpCover }} 600w"
-              sizes="(min-width: 1350px) 300px,
+      <picture>
+        <source type="image/webp"
+                srcset="/assets/img/books/_300x480/{{ webpCover }} 300w,
+                        /assets/img/books/{{ webpCover }} 600w"
+                sizes="(min-width: 1350px) 300px,
+                      (min-width: 1024px) 25vw,
+                      (min-width: 750px) 33vw,
+                      (min-width: 500px) 50vw,
+                      100vw">
+        <img src="/assets/img/books/_300x480/{{ jpgCover }}"
+             srcset="/assets/img/books/_300x480/{{ jpgCover }} 300w,
+                     /assets/img/books/{{ jpgCover }} 600w"
+             sizes="(min-width: 1350px) 300px,
                      (min-width: 1024px) 25vw,
                      (min-width: 750px) 33vw,
                      (min-width: 500px) 50vw,
-                     100vw">
-      <img src="/assets/img/books/_300x480/{{ jpgCover }}"
-           srcset="/assets/img/books/_300x480/{{ jpgCover }} 300w,
-                   /assets/img/books/{{ jpgCover }} 600w"
-           sizes="(min-width: 1350px) 300px,
-                  (min-width: 1024px) 25vw,
-                  (min-width: 750px) 33vw,
-                  (min-width: 500px) 50vw,
-                  100vw"
-           class="o-fluidimage"
-           alt="{{ title }}"
-           loading="lazy"
-           decoding="async">
+                     100vw"
+             class="o-fluidimage"
+             alt="{{ title }}"
+             width="600"
+             height="960"
+             loading="lazy"
+             decoding="async">
       </picture>
     </a></div>
     <div class="c-book__body">
