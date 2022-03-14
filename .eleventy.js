@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("limit", require("./src/_11ty/filters/limit.js"));
   eleventyConfig.addFilter("translate", require("./src/_11ty/filters/translate.js"));
   eleventyConfig.addFilter("shuffle", require("./src/_11ty/filters/shuffle.js"));
+  eleventyConfig.addFilter("setFileExtension", require("./src/_11ty/filters/setFileExtension.js"));
 
   // collections
   eleventyConfig.addCollection("books_fr", require("./src/_11ty/collections/books_fr.js"));
