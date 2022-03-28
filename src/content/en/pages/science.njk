@@ -73,7 +73,7 @@ pageIntro: "Database of scientific articles, analysis, academic papers and insti
                 <li v-for="item in records" :key="item.id">
                   <article class="c-record">
                     <p class="c-record__meta">
-                      <span class="c-record__type" v-text="item.type.fr"></span><span v-if="item.author" class="c-record__author" v-text="' - ' + item.author"></span><span v-if="item.publication" class="c-record__publication" v-text="' - ' + item.publication"></span><span v-if="item.institution" class="c-record__institution" v-text="' - ' + item.institution"></span><span v-if="item.year" class="c-record__year" v-text="', ' + item.year"></span>
+                      <span class="c-record__type" v-text="item.type.en"></span><span v-if="item.author" class="c-record__author" v-text="' - ' + item.author"></span><span v-if="item.publication" class="c-record__publication" v-text="' - ' + item.publication"></span><span v-if="item.institution" class="c-record__institution" v-text="' - ' + item.institution"></span><span v-if="item.year" class="c-record__year" v-text="', ' + item.year"></span>
                     </p>
                     <h2 class="c-record__title  c-h3">
                       <template v-if="item.url !== ''">
