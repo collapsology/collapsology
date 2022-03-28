@@ -10,7 +10,7 @@
     <nav class="c-siteheader__lgg">
       {% for lgg in languages %}
         {% if loop.first %}<ul class="c-lggnav">{% endif %}
-          {% set translatedUrl = "/" ~ lgg.code ~ "/" %}
+          {% set translatedUrl %}/{{ lgg.code }}/{% endset %}
 
           {# loop through all the content of the site #}
           {% for item in collections.all %}
