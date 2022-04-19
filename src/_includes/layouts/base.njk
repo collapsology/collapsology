@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ metaTitle ~ " - " }}{{ site[locale].title }}</title>
+    <title>{% if metaTitle %}{{ metaTitle }} - {% endif %}{{ site[locale].title }}</title>
     <meta name="description" content="{{ metaDescription }}">
+    <meta name="generator" content="{{ eleventy.generator }}">
 
     <!-- Preloads -->
     <link rel="preload" href="/assets/fonts/crimson-text-600.woff2" as="font" type="font/woff2" crossorigin>
