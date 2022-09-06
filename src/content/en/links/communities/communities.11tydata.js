@@ -1,4 +1,4 @@
 module.exports = {
   type: "Communities",
-  ordee: 7
+  order: 7
 }
