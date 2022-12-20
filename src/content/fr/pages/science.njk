@@ -83,11 +83,13 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
                         <span v-text="item.title"></span>
                       </template>
                     </h2>
-                   <ul v-if="item.tags.length > 0" class="c-tagcloud">
-  <li v-for="tag in item.tags" :key="tag.id" class="c-tagcloud__item">
-    <a class="c-tagcloud__link" v-text="tag.name"></a>
-  </li>
-</ul>
+                   {% if item.tags %}
+  <ul class="c-tagcloud">
+    <li v-for="tag in item.tags" :key="tag.id" class="c-tagcloud__item">
+      <a class="c-tagcloud__link" href="#" v-text="tag.name"></a>
+    </li>
+  </ul>
+{% endif %}
                     <details v-if="item.summary" class="c-record__summary" closed>
                       <summary class="c-record__summary-trigger">Afficher le résumé</summary>
                       <div class="c-record__summary-content" v-text="item.summary"></div>
