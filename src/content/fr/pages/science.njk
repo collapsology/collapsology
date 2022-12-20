@@ -83,7 +83,9 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
                         <span v-text="item.title"></span>
                       </template>
                     </h2>
-                    <p class="c-tags" v-html="item.tags"></p>
+                    <p v-if="item.tags.length > 0" class="c-article__tags">
+  {{ item.tags.join(', ') }}
+</p>
                     <details v-if="item.summary" class="c-record__summary" closed>
                       <summary class="c-record__summary-trigger">Afficher le résumé</summary>
                       <div class="c-record__summary-content" v-text="item.summary"></div>
