@@ -84,9 +84,9 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
                       </template>
                     </h2>
                     <ul class="c-item__tags">
-                       {% for tag in item.tags %}
-                      <li class="c-item__tag"><a class="c-item__taglink" href="#" v-text="tag"></a></li>
-                       {% endfor %}
+                        <template v-if="item.tag !== ''">
+                      <a class="c-item__taglink" href="item.tag" v-text="item.tag"></a></li>
+                         </template>
                        </ul>
                     <details v-if="item.summary" class="c-record__summary" closed>
                       <summary class="c-record__summary-trigger">Afficher le résumé</summary>
