@@ -87,6 +87,8 @@ pageIntro: "Database of scientific articles, analysis, academic papers and insti
                       <summary class="c-record__summary-trigger">Display summary</summary>
                       <div class="c-record__summary-content" v-text="item.summary"></div>
                     </details>
+                    <meta property="og:title" content="{{ item.title }}" />
+                    <meta property="og:description" content="{{ item.summary }}" />
                   </article>
                 </li>
               </ul>
