@@ -3,6 +3,19 @@ const API_URL = process.env.API_URL;
 const API_KEY = process.env.API_KEY;
 
 /**
+ * Format record tags
+ *
+ * @param {Array} tags - array of tag objects { tag: 'name-of-tag' }
+ * @returns {Array} - formatted tag array for display
+ */
+function formatTags(tags) {
+  let formattedTags = tags.map((tagObject) => {
+    return tagObject.tag.replace(/-/g, " ");
+  });
+  return formattedTags;
+}
+
+/**
  * Format publication type
  *
  * @param {String} type - type
@@ -148,6 +161,7 @@ exports.handler = async function (event, context, callback) {
     // if we get a response, get the fields and format
     if (response.status === 200) {
       let zoteroData = response.data.map((item) => {
+        // return formatted record object
         return {
           id: item.key,
           type: formatType(item.data.itemType),
@@ -159,6 +173,7 @@ exports.handler = async function (event, context, callback) {
           institution: item.data.institution,
           url: item.data.url,
           summary: item.data.abstractNote,
+          tags: formatTags(item.data.tags),
         };
       });
 

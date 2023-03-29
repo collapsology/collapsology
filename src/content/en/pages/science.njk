@@ -74,7 +74,6 @@ pageIntro: "Database of scientific articles, analysis, academic papers and insti
                   <article class="c-record">
                     <p class="c-record__meta">
                       <span class="c-record__type" v-text="item.type.en"></span><span v-if="item.author" class="c-record__author" v-text="' - ' + item.author"></span><span v-if="item.publication" class="c-record__publication" v-text="' - ' + item.publication"></span><span v-if="item.institution" class="c-record__institution" v-text="' - ' + item.institution"></span><span v-if="item.year" class="c-record__year" v-text="', ' + item.year"></span>
-                      <span v-for="tag in tags" :key="tag.id" class="c-record__tag" :class="{ 'is-active': currentTag === tag.id }" v-text="' | ' + tag.name"></span>
                     </p>
                     <h2 class="c-record__title  c-h3">
                       <template v-if="item.url !== ''">
@@ -84,6 +83,12 @@ pageIntro: "Database of scientific articles, analysis, academic papers and insti
                         <span v-text="item.title"></span>
                       </template>
                     </h2>
+                    <template v-if="item.tags.length">
+                      <ul class="c-record__tags">
+                        <li class="c-record__tag" v-for="(tag, index) in item.tags" :key="index" v-text="tag"></li>
+                      </ul>
+                    </template>
+
                     <details v-if="item.summary" class="c-record__summary" closed>
                       <summary class="c-record__summary-trigger">Display summary</summary>
                       <div class="c-record__summary-content" v-text="item.summary"></div>

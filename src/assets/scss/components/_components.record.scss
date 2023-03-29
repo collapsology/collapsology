@@ -24,7 +24,7 @@
 
 .c-record__title {
   margin-bottom: calc(12 / 16 * 1rem);
-  line-height: 1.36;
+  line-height: 1.32;
 
   @include mq(medium) {
     margin-bottom: calc(6 / 16 * 1rem);
@@ -42,6 +42,31 @@
     text-decoration: underline;
     text-decoration-color: var(--color-primary-dark);
   }
+}
+
+.c-record__tags {
+  list-style: none;
+  margin: 0 0 calc(6 / 16 * 1rem);
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: calc(3 / 16 * 1rem);
+}
+
+.c-record__tag {
+  font-size: calc(12 / 16 * 1rem);
+  color: var(--color-gray1);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.c-record__tag:not(:last-child)::after {
+  content: ", ";
 }
 
 .c-record__summary {
