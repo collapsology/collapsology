@@ -35,10 +35,20 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("linksByTypes_fr", linksByTypes_fr);
   eleventyConfig.addCollection("linksByTypes_en", linksByTypes_en);
 
+  // ignores
+  eleventyConfig.ignores.add("src/assets/**/*");
+  eleventyConfig.watchIgnores.add("src/assets/**/*");
+
   // passthrough copy
-  eleventyConfig.addPassthroughCopy({"./src/static/":"/"});
+  eleventyConfig.addPassthroughCopy({ "./src/static/": "/" });
   eleventyConfig.addPassthroughCopy("./src/assets/img/");
   eleventyConfig.addPassthroughCopy("./src/assets/fonts/");
+
+  // server config
+  eleventyConfig.setServerOptions({
+    watch: ["./dist/assets/css/**/*.css", "./dist/assets/js/**/*.js"],
+    port: 3000,
+  });
 
   // base config
   return {
@@ -46,10 +56,10 @@ module.exports = function (eleventyConfig) {
       input: "src",
       output: "dist",
       includes: "_includes",
-      data: "_data"
+      data: "_data",
     },
     templateFormats: ["njk", "md"],
     htmlTemplateEngine: "njk",
-    markdownTemplateEngine: "njk"
+    markdownTemplateEngine: "njk",
   };
 };
