@@ -26,8 +26,23 @@
     <!-- Apple icon (minimal) -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- JS -->
     <script type="module" src="/assets/js/main.bundle.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-84VH0QGZ15"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-84VH0QGZ15');
+    </script>
+
+    {# end of head block for script injection #}
     {% block headend %}{% endblock %}
   </head>
   <body>
