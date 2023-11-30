@@ -22,11 +22,5 @@
 }
 
 .c-filters__body {
-  display: none;
   padding-top: calc(24 / 16 * 1rem);
-}
-
-.c-filters__body.is-open {
-  display: block;
-  animation: appear 0.2s ease-out both;
 }

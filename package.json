@@ -15,8 +15,8 @@
     "styles:prod": "sass --no-source-map --style=compressed src/assets/scss/main.scss dist/assets/css/main.css",
     "styles:dev": "sass --source-map --embed-source-map --source-map-urls=absolute ./src/assets/scss/main.scss dist/assets/css/main.css",
     "poststyles:prod": "postcss dist/assets/css/main.css --replace --no-map --use autoprefixer cssnano",
-    "scripts:prod": "esbuild main.bundle=./src/assets/js/main.js app.bundle=./src/assets/js/app.js --target=es6 --bundle --minify --outdir=./dist/assets/js/",
-    "scripts:dev": "esbuild main.bundle=./src/assets/js/main.js app.bundle=./src/assets/js/app.js --target=es6 --bundle --outdir=./dist/assets/js/",
+    "scripts:prod": "esbuild main.bundle=./src/assets/js/main.js app.bundle=./src/assets/js/app.js --target=es2020 --bundle --minify --outdir=./dist/assets/js/",
+    "scripts:dev": "esbuild main.bundle=./src/assets/js/main.js app.bundle=./src/assets/js/app.js --target=es2020 --bundle --outdir=./dist/assets/js/",
     "server": "npx @11ty/eleventy --serve --quiet",
     "eleventy": "npx @11ty/eleventy --quiet",
     "images": "node \"./build_tasks/transform-images.js\"",
@@ -32,6 +32,7 @@
   ],
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "alpinejs": "^3.13.3",
     "autoprefixer": "^10.4.16",
     "axios": "^1.5.0",
     "cssnano": "^6.0.1",

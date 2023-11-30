@@ -18,15 +18,12 @@
   border-top: none;
 }
 
-.c-pager {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
+.c-pagination__nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: calc(6 / 16 * 1rem);
 }
 
 .c-pager {
@@ -38,10 +35,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-}
-
-.c-pager__item:not(:last-child) {
-  margin-right: 3px;
+  gap: calc(3 / 16 * 1rem);
 }
 
 .c-pager__link,

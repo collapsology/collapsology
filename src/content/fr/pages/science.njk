@@ -18,12 +18,7 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
 
 {% block content %}
   <main>
-    {#
-      Warning:
-      use only v-text / v-html with petite-vue
-      to avoid collision with nunjucks rendering
-    #}
-    <div id="app" v-scope @vue:mounted="fetchTags()" v-effect="fetchRecords()">
+    <div x-data="zotero" x-effect="getRecords()">
 
       <div class="c-pagesection  c-pagesection--dark  u-padding-top-xl">
         <div class="l-container  l-container--narrow">
@@ -32,9 +27,8 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
           <h2 class="u-hide">Recherche</h2>
           <form class="c-searchform" @submit.prevent="setSearch()">
             <div class="c-searchform__field">
-              <input class="c-searchform__input" type="search" v-model="needle">
-              <input class="c-searchform__submit" type="submit" value="go" v-show="searchQuery.length === 0">
-              <input @click="clearSearch()" class="c-searchform__reset" type="reset" v-show="searchQuery.length > 0" value="effacer">
+              <input class="c-searchform__input" type="search" x-model="searchQuery">
+              <input class="c-searchform__submit" type="submit" value="go">
             </div>
           </form>
         </div>
@@ -43,78 +37,90 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
       <div class="c-pagesection">
         <div class="l-container  l-container--narrow">
 
-          <div v-if="!loading" class="c-filters">
+          <div class="c-filters">
             <div class="c-filters__controls">
-              <button @click="filtersOpen = !filtersOpen" aria-controls="filtersBody" aria-expanded="filtersOpen = !filtersOpen" class="c-button  c-button--secondary">Filtrer par tag <span class="c-icon  c-icon--small" aria-hidden="true">{% include "svg/icon_filters.svg" %}</span></button>
+              <button class="c-button  c-button--secondary"
+                      @click="filtersOpen = !filtersOpen"
+                      id="filtersButton"
+                      :aria-expanded="filtersOpen"
+                      aria-controls="filtersBody">
+                Filtrer par tag
+                <span class="c-icon  c-icon--small" aria-hidden="true">{% include "svg/icon_filters.svg" %}</span>
+              </button>
             </div>
-            <div id="filtersBody" class="c-filters__body" :class="{ 'is-open': filtersOpen }">
+            <div class="c-filters__body" x-show="filtersOpen" id="filtersBody" aria-labelledby="panelTagsControl">
 
-              <ul v-if="tags.length > 0" class="c-tagcloud">
-                <li class="c-tagcloud__item"><a class="c-tagcloud__link" :class="{ 'is-active': currentTag === '' }" href="#" @click.prevent="clearTag()">Tous</a></li>
-                <li v-for="tag in tags" :key="tag.id" class="c-tagcloud__item"><a class="c-tagcloud__link" :class="{ 'is-active': currentTag === tag.id }" href="#" @click.prevent="setTag(tag.id)" v-text="tag.name"></a></li>
+              <ul x-show="tags.length" class="c-tagcloud">
+                <li class="c-tagcloud__item">
+                  <a class="c-tagcloud__link" :class="{ 'is-active': currentTag === '' }" href="#" @click.prevent="clearTag()">Tous</button></a>
+                </li>
+                <template x-for="(item, index) in tags" :key="index">
+                  <li class="c-tagcloud__item">
+                    <a class="c-tagcloud__link" href="#"
+                      @click.prevent="setTag(item.id)"
+                      :class="item.id === currentTag ? 'is-active' : ''"
+                      x-text="item.name"></a>
+                  </li>
+                </template>
               </ul>
-              <p v-else>Pas de tags</p>
+              <p x-show="!tags.length">Récupération des tags</p>
 
             </div>
           </div>
 
-          <div v-if="loading" class="c-message">
+          <div x-show="loadingRecords" class="c-message">
             <div class="c-message__icon">{% include "svg/spinner.svg" %}</div>
             <div class="c-message__text">
               <p>Recherche dans la base de données</p>
             </div>
           </div>
 
-          <p v-if="!loading && totalRecords === 0">Pas de résultats</p>
-          <div v-if="!loading && totalRecords > 0">
-            <div>
-              <p v-text="totalRecords + ' références'"></p>
+          <p x-show="!loadingRecords && totalRecords === 0">Pas de résultats</p>
+
+          <div x-show="!loadingRecords && totalRecords > 0">
+
+              <p x-text="totalRecords + ' références'"></p>
+
               <ul class="c-listui">
-                <li v-for="item in records" :key="item.id">
-                  <article class="c-record">
-                    <p class="c-record__meta">
-                      <span class="c-record__type" v-text="item.type.fr"></span><span v-if="item.author" class="c-record__author" v-text="' - ' + item.author"></span><span v-if="item.publication" class="c-record__publication" v-text="' - ' + item.publication"></span><span v-if="item.institution" class="c-record__institution" v-text="' - ' + item.institution"></span><span v-if="item.year" class="c-record__year" v-text="', ' + item.year"></span>
-                    </p>
-                    <h2 class="c-record__title  c-h3">
-                      <template v-if="item.url !== ''">
-                        <a :href="item.url" target="_blank" v-text="item.title"></a>
-                      </template>
-                      <template v-else>
-                        <span v-text="item.title"></span>
-                      </template>
-                    </h2>
-                    <template v-if="item.tags.length">
-                      <ul class="c-record__tags">
-                        <li class="c-record__tag" v-for="(tag, index) in item.tags" :key="index" v-text="tag"></li>
+                <template x-for="item in records" :key="item.id">
+                  <li>
+                    <article class="c-record">
+                      <p class="c-record__meta">
+                        <span class="c-record__type" x-text="item.type.fr"></span><!--
+                     --><span class="c-record__author" x-show="item.author" x-text="` - ${item.author}`"></span><!--
+                     --><span class="c-record__publication" x-show="item.publication" x-text="` - ${item.publication}`"></span><!--
+                     --><span class="c-record__institution" x-show="item.institution" x-text="` - ${item.institution}`"></span><!--
+                     --><span class="c-record__year" x-show="item.year" x-text="`, ${item.year}`"></span>
+                      </p>
+                      <h2 class="c-record__title  c-h3" x-show="item.title && !item.url" x-text="item.title"></h2>
+                      <h2 class="c-record__title  c-h3" x-show="item.title && item.url"><a :href="item.url" x-text="item.title"></a></h2>
+                      <ul class="c-record__tags" x-show="item.tags.length">
+                        <template x-for="(tag, index) in item.tags" :key="index">
+                          <li class="c-record__tag" x-text="tag"></li>
+                        </template>
                       </ul>
-                    </template>          
-                    <details v-if="item.summary" class="c-record__summary" closed>
-                      <summary class="c-record__summary-trigger">Afficher le résumé</summary>
-                      <div class="c-record__summary-content" v-text="item.summary"></div>
-                    </details>
-                  </article>
-                </li>
+                      <details class="c-record__summary" x-show="item.summary" closed>
+                        <summary class="c-record__summary-trigger">Afficher le résumé</summary>
+                        <p class="c-record__summary-content" x-text="item.summary"></p>
+                      </details>
+
+                    </article>
+                  </li>
+                </template>
               </ul>
-            </div>
-            <div class="c-pagination  c-pagination--noborder">
-              <nav>
-                <ul class="c-pager">
-                  <li class="c-pager__item">
-                    <button class="c-pager__button" @click="firstPage()" :disabled="currentPage === 1">{% include "svg/pagination_first.svg" %}</button>
-                  </li>
-                  <li class="c-pager__item">
-                    <button class="c-pager__button" @click="prevPage()" :disabled="currentPage === 1">{% include "svg/pagination_prev.svg" %}</button>
-                  </li>
-                  <li class="c-pager__item">
-                    <button class="c-pager__button" @click="nextPage()" :disabled="currentPage === totalPages">{% include "svg/pagination_next.svg" %}</button>
-                  </li>
-                  <li class="c-pager__item">
-                    <button class="c-pager__button" @click="lastPage()" :disabled="currentPage === totalPages">{% include "svg/pagination_last.svg" %}</button>
-                  </li>
-                </ul>
-              </nav>
-              <p class="c-pagecounter">Page <span v-text="currentPage"></span>/<span v-text="totalPages"></span></p>
-            </div>
+
+              <div class="c-pagination  c-pagination--noborder">
+                <nav class="c-pagination__nav" aria-label="pagination">
+                  <ul class="c-pager">
+                    <li class="c-pager__item"><button class="c-pager__button" @click="getFirstPage()" :disabled="currentPage === 1" aria-label="première page">{% include "svg/pagination_first.svg" %}</button></li>
+                    <li class="c-pager__item"><button class="c-pager__button" @click="getPrevPage()" :disabled="currentPage === 1" aria-label="page précédente">{% include "svg/pagination_prev.svg" %}</button></li>
+                    <li class="c-pager__item"><button class="c-pager__button" @click="getNextPage()" :disabled="currentPage === totalPages" aria-label="page suivante">{% include "svg/pagination_next.svg" %}</button></li>
+                    <li class="c-pager__item"><button class="c-pager__button" @click="getLastPage()" :disabled="currentPage === totalPages" aria-label="dernière page">{% include "svg/pagination_last.svg" %}</button></li>
+                  </ul>
+                  <p class="c-pagecounter">page <span x-text="currentPage"></span> / <span x-text="totalPages"></span></p>
+                </nav>
+              </div>
+
           </div>
 
         </div>
