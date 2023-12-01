@@ -28,26 +28,24 @@
   },
   "browserslist": [
     "last 2 versions",
-    "not IE <= 11"
+    "not dead"
   ],
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "alpinejs": "^3.13.3",
     "autoprefixer": "^10.4.16",
-    "axios": "^1.5.0",
     "cssnano": "^6.0.1",
     "dotenv": "^16.3.1",
-    "esbuild": "^0.19.3",
+    "esbuild": "^0.19.8",
     "lodash": "^4.17.21",
-    "luxon": "^3.4.3",
-    "netlify-cli": "^16.4.2",
+    "luxon": "^3.4.4",
+    "netlify-cli": "^17.8.1",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
-    "petite-vue": "^0.4.1",
-    "postcss": "^8.4.30",
+    "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
-    "rimraf": "^5.0.1",
-    "sass": "^1.68.0",
-    "sharp": "^0.32.6"
+    "rimraf": "^5.0.5",
+    "sass": "^1.69.5",
+    "sharp": "^0.33.0"
   }
 }

@@ -61,8 +61,6 @@ export default () => {
         let response = await fetch("/.netlify/functions/tags/");
         let jsonData = await response.json();
 
-        console.log(jsonData);
-
         // assign data to values
         this.tags = jsonData.data;
 

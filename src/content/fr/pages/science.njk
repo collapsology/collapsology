@@ -18,6 +18,11 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
 
 {% block content %}
   <main>
+    {#
+      Warning:
+      use only x-text with Alpine
+      to avoid collision with nunjucks rendering
+    #}
     <div x-data="zotero" x-effect="getRecords()">
 
       <div class="c-pagesection  c-pagesection--dark  u-padding-top-xl">
@@ -28,7 +33,8 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
           <form class="c-searchform" @submit.prevent="setSearch()">
             <div class="c-searchform__field">
               <input class="c-searchform__input" type="search" x-model="searchQuery">
-              <input class="c-searchform__submit" type="submit" value="go">
+              <input class="c-searchform__reset" @click="clearSearch()" type="reset" x-show="q.length > 0" value="effacer">
+              <input class="c-searchform__submit" type="submit" x-show="q.length === 0" value="go">
             </div>
           </form>
         </div>
@@ -63,13 +69,13 @@ pageIntro: "Articles scientifiques, livres et chapitres de livres universitaires
                   </li>
                 </template>
               </ul>
-              <p x-show="!tags.length">Récupération des tags</p>
+              <p x-show="!tags.length">Chargement des tags</p>
 
             </div>
           </div>
 
           <div x-show="loadingRecords" class="c-message">
-            <div class="c-message__icon">{% include "svg/spinner.svg" %}</div>
+            <div class="c-message__icon" aria-hidden="true">{% include "svg/spinner.svg" %}</div>
             <div class="c-message__text">
               <p>Recherche dans la base de données</p>
             </div>
